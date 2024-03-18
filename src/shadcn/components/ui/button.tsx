@@ -4,32 +4,36 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "../../utils"
 
+
+
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-stone-950 dark:focus-visible:ring-stone-300",
+  "",
   {
     variants: {
       variant: {
-        default: "bg-primary text-white hover:bg-stone-900/90 dark:bg-primary dark:text-stone-900 dark:hover:bg-stone-50/90",
-        destructive:
-          "bg-danger text-stone-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-stone-50 dark:hover:bg-red-900/90",
-        outline:
-          "border border-stone-200 bg-white hover:bg-stone-100 hover:text-stone-900 dark:border-stone-800 dark:bg-stone-950 dark:hover:bg-stone-800 dark:hover:text-stone-50",
-        secondary:
-          "bg-secondary text-stone-900 hover:bg-stone-100/80 dark:bg-stone-800 dark:text-stone-50 dark:hover:bg-stone-800/80",
-        success: 
-          "bg-success text-white hover:bg-emerald-500/90 dark:bg-emerald-900 dark:text-stone-50 dark:hover:bg-emerald-900/90",
-        ghost: "hover:bg-stone-100 hover:text-stone-900 dark:hover:bg-stone-800 dark:hover:text-stone-50",
-        link: "text-stone-900 underline-offset-4 hover:underline dark:text-stone-50",
+        primary: "primary",
+        destructive: "destructive",
+        outlinePrimary: "outline-primary",
+        outlineSecondary: "outline-secondary",
+        outlineBlack: "outline-black",
+        outlineSuccess: "outline-success",
+        outlineDestructive: "outline-destructive",
+        outlineWarning: "outline-warning",
+        warning: "warning",
+        secondary: "secondary",
+        success: "success",
+        ghost: "ghost",
+        link: "link",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3 w-1/4",
-        lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
+        default: "default",
+        sm: "sm",
+        lg: "lg",
+        icon: "icon",
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: "primary",
       size: "default",
     },
   }
@@ -43,16 +47,222 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
+    const Comp = asChild ? Slot : "button";
+
+    // Define button styles based on variant
+    let buttonStyles: React.CSSProperties = {
+      backgroundColor: "blue",
+      color: "white",
+      border: "1px blue solid",
+      padding: "10px 20px",
+      borderRadius: "5px",
+      fontSize: "16px",
+      cursor: "pointer",
+    };
+
+    // Override styles based on variant
+    switch (variant) {
+      case "primary":
+        buttonStyles = {
+          ...buttonStyles,
+          borderColor: "blue",
+          backgroundColor: "blue",
+        };
+        break;
+      case "destructive":
+        buttonStyles = {
+          ...buttonStyles,
+          borderColor: "red",
+          backgroundColor: "red",
+        };
+        break;
+      case "outlinePrimary":
+        buttonStyles = {
+          ...buttonStyles,
+          borderColor: "blue",
+          color: "blue",
+          backgroundColor: "transparent",
+        };
+        break;
+      case "outlineSecondary":
+        buttonStyles = {
+          ...buttonStyles,
+          borderColor: "gray",
+          color: "gray",
+          backgroundColor: "transparent",
+        };
+        break;
+      case "outlineBlack":
+        buttonStyles = {
+          ...buttonStyles,
+          borderColor: "black",
+          color: "black",
+          backgroundColor: "transparent",
+        };
+        break;
+      case "outlineSuccess":
+        buttonStyles = {
+          ...buttonStyles,
+          borderColor: "green",
+          color: "green",
+          backgroundColor: "transparent",
+        };
+        break;
+      case "ghost":
+        buttonStyles = {
+          ...buttonStyles,
+          borderColor: "transparent",
+          backgroundColor: "transparent",
+          color: "gray",
+        };
+        break;
+      case "success":
+        buttonStyles = {
+          ...buttonStyles,
+          borderColor: "transparent",
+          backgroundColor: "green",
+        };
+        break;
+      case "warning":
+        buttonStyles = {
+          ...buttonStyles,
+          borderColor: "orange",
+          backgroundColor: "orange",
+        };
+        break;
+      case "outlineWarning":
+        buttonStyles = {
+          ...buttonStyles,
+          borderColor: "orange",
+          color: "orange",
+          backgroundColor: "transparent",
+        };
+        break;
+      // Add other cases for different variants as needed
+      default:
+        break;
+    }
+
+    // Define hover styles based on variant
+    let hoverStyles: React.CSSProperties = {};
+    switch (variant) {
+      case "destructive":
+        hoverStyles = {
+          ...buttonStyles,
+          borderColor: "darkred",
+          backgroundColor: "darkred",
+        };
+        break;
+      case "success":
+        hoverStyles = {
+          ...buttonStyles,
+          borderColor: "darkgreen",
+          backgroundColor: "darkgreen",
+        }
+        break;
+      case "warning":
+        hoverStyles = {
+          ...buttonStyles,
+          borderColor: "darkOrange",
+          backgroundColor: "darkorange",
+        }
+        break;
+      case "outlinePrimary":
+        hoverStyles = {
+          ...buttonStyles,
+          backgroundColor: "blue",
+          color: "white",
+        };
+        break;
+      case "outlineBlack":
+        hoverStyles = {
+          ...buttonStyles,
+          backgroundColor: "black",
+          color: "white",
+        };
+        break;
+      case "outlineSecondary":
+        hoverStyles = {
+          ...buttonStyles,
+          backgroundColor: "gray",
+          color: "white",
+        };
+        break;
+      case "outlineWarning":
+        hoverStyles = {
+          ...buttonStyles,
+          backgroundColor: "orange",
+          color: "white",
+        };
+        break;
+      case "outlineDestructive":
+        hoverStyles = {
+          ...buttonStyles,
+          backgroundColor: "red",
+          color: "white",
+        };
+        break;
+      case "outlineSuccess": 
+        hoverStyles = {
+        ...buttonStyles,
+          backgroundColor: "green",
+          color: "white",
+        };
+        break;
+      case "secondary":
+        hoverStyles = {
+          ...buttonStyles,
+          borderColor: "darkgray",
+          backgroundColor: "darkgray",
+        };
+        break;
+      case "ghost":
+        hoverStyles = {
+          ...buttonStyles,
+          borderColor: "gray",
+          backgroundColor: "gray",
+          color: "white",
+        };
+        break;
+      case "primary":
+      // Add other cases for different variants as needed
+      default:
+        hoverStyles = {
+          ...buttonStyles,
+          borderColor: "darkblue",
+          backgroundColor: "darkblue",
+        };
+        break;
+    }
+
+    // State to track hover state
+    const [isHovered, setIsHovered] = React.useState<boolean>(false);
+
+    // Event handlers
+    const handleMouseEnter = () => {
+      setIsHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+      setIsHovered(false);
+    };
+
+    // Apply styles based on hover state
+    const styles = isHovered ? hoverStyles : buttonStyles;
+
     return (
       <Comp
+        style={{ ...styles }}
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         {...props}
       />
-    )
+    );
   }
-)
-Button.displayName = "Button"
+);
 
-export { Button, buttonVariants }
+Button.displayName = "Button";
+
+export { Button, buttonVariants };

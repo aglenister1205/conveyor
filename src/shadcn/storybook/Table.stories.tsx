@@ -51,9 +51,9 @@ const meta = {
     },
   },
   render: (props) => (
-    <ListGroup>
+    <div>
       <Slots {...props} />
-    </ListGroup>
+    </div>
   ),
 } satisfies Meta<typeof Slots>;
 
@@ -93,7 +93,10 @@ export const TableTest: Story = {
             </Table.Row>
           </Table.Body>
         </Table>
-        <Button onClick={(e)=> console.log('clicked')} variant='success' size={'sm'}>{'Button'}</Button>
+        <div>
+        <Button onClick={(e)=> console.log('clicked')} variant='ghost'>{'Button'}</Button>
+        <Button onClick={(e)=> console.log('clicked 2')} variant='destructive'>{'Button'}</Button>
+        </div>
       </>
     ),
   },
