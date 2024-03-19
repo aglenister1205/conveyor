@@ -1,74 +1,66 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
-import { cva, type VariantProps } from "class-variance-authority"
 
-import { cn } from "../../utils"
-
-
-
-const buttonVariants = cva(
-  "",
-  {
-    variants: {
-      variant: {
-        primary: "primary",
-        destructive: "destructive",
-        outlinePrimary: "outline-primary",
-        outlineSecondary: "outline-secondary",
-        outlineBlack: "outline-black",
-        outlineSuccess: "outline-success",
-        outlineDestructive: "outline-destructive",
-        outlineWarning: "outline-warning",
-        warning: "warning",
-        secondary: "secondary",
-        success: "success",
-        ghost: "ghost",
-        link: "link",
-      },
-      size: {
-        default: "default",
-        sm: "sm",
-        lg: "lg",
-        icon: "icon",
-      },
-    },
-    defaultVariants: {
-      variant: "primary",
-      size: "default",
-    },
-  }
-)
-
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  asChild?: boolean
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  asChild?: boolean;
+  variant?: 'primary' | 'destructive' | 'success' | 'warning' | 'secondary' | 'ghost' | 'link' | 'outline-primary' | 'outline-secondary' | 'outline-black' | 'outline-success' | 'outline-warning' | 'outline-destructive';
+  size?: 'default' | 'sm' | 'lg' | 'icon';
+  position?: 'alone' | 'middle' | 'left-edge' | 'right-edge';
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, position, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
+
+    let borderRadius = "5px";
+    // Set border radius based on position
+    switch (position) {
+      case "alone":
+        borderRadius = "5px";
+        break;
+      case "middle":
+        borderRadius = "0px";
+        break;
+      case "left-edge":
+        borderRadius = "5px 0 0 5px";
+        break;
+      case "right-edge":
+        borderRadius = "0 5px 5px 0";
+        break;
+      default:
+        break;
+    }
+
+    let padding = "6px 12px";
+    //set padding based on size
+    switch(size) {
+      case "sm": 
+        padding = "3px 6px";
+        break;
+      case "lg":
+        padding = "10px 20px";
+        break;
+      case "icon":
+        padding = "8px 8px";
+        break;
+      case "default":
+      default:
+        break;
+    }
 
     // Define button styles based on variant
     let buttonStyles: React.CSSProperties = {
       backgroundColor: "blue",
       color: "white",
       border: "1px blue solid",
-      padding: "10px 20px",
-      borderRadius: "5px",
+      padding: padding,
+      borderRadius: borderRadius,
       fontSize: "16px",
       cursor: "pointer",
     };
 
     // Override styles based on variant
     switch (variant) {
-      case "primary":
-        buttonStyles = {
-          ...buttonStyles,
-          borderColor: "blue",
-          backgroundColor: "blue",
-        };
-        break;
       case "destructive":
         buttonStyles = {
           ...buttonStyles,
@@ -76,7 +68,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           backgroundColor: "red",
         };
         break;
-      case "outlinePrimary":
+      case "outline-primary":
         buttonStyles = {
           ...buttonStyles,
           borderColor: "blue",
@@ -84,7 +76,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           backgroundColor: "transparent",
         };
         break;
-      case "outlineSecondary":
+      case "outline-secondary":
         buttonStyles = {
           ...buttonStyles,
           borderColor: "gray",
@@ -92,7 +84,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           backgroundColor: "transparent",
         };
         break;
-      case "outlineBlack":
+      case "outline-black":
         buttonStyles = {
           ...buttonStyles,
           borderColor: "black",
@@ -100,7 +92,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           backgroundColor: "transparent",
         };
         break;
-      case "outlineSuccess":
+      case "outline-success":
         buttonStyles = {
           ...buttonStyles,
           borderColor: "green",
@@ -130,7 +122,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           backgroundColor: "orange",
         };
         break;
-      case "outlineWarning":
+      case "outline-warning":
         buttonStyles = {
           ...buttonStyles,
           borderColor: "orange",
@@ -138,9 +130,40 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           backgroundColor: "transparent",
         };
         break;
-      // Add other cases for different variants as needed
-      default:
+      case "outline-destructive":
+        buttonStyles = {
+          ...buttonStyles, 
+          borderColor: "red",
+          color: "red",
+          backgroundColor: "transparent",
+        
+        };
         break;
+      case "secondary":
+        buttonStyles = {
+          ...buttonStyles, 
+          borderColor: "gray",
+          backgroundColor: "gray",
+        }
+        break;
+      case "link":
+        buttonStyles = {
+          ...buttonStyles,
+          color: "cyan",
+          borderColor: "transparent",
+          backgroundColor: "transparent",
+          textDecoration: "underline",
+        }
+        break;
+      case "primary":
+      default:  
+        buttonStyles = {
+          ...buttonStyles,
+          borderColor: "blue",
+          backgroundColor: "blue",
+        };
+        break;
+      // Add other cases for different variants as needed
     }
 
     // Define hover styles based on variant
@@ -167,42 +190,42 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           backgroundColor: "darkorange",
         }
         break;
-      case "outlinePrimary":
+      case "outline-primary":
         hoverStyles = {
           ...buttonStyles,
           backgroundColor: "blue",
           color: "white",
         };
         break;
-      case "outlineBlack":
+      case "outline-black":
         hoverStyles = {
           ...buttonStyles,
           backgroundColor: "black",
           color: "white",
         };
         break;
-      case "outlineSecondary":
+      case "outline-secondary":
         hoverStyles = {
           ...buttonStyles,
           backgroundColor: "gray",
           color: "white",
         };
         break;
-      case "outlineWarning":
+      case "outline-warning":
         hoverStyles = {
           ...buttonStyles,
           backgroundColor: "orange",
           color: "white",
         };
         break;
-      case "outlineDestructive":
+      case "outline-destructive":
         hoverStyles = {
           ...buttonStyles,
           backgroundColor: "red",
           color: "white",
         };
         break;
-      case "outlineSuccess": 
+      case "outline-success": 
         hoverStyles = {
         ...buttonStyles,
           backgroundColor: "green",
@@ -223,6 +246,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           backgroundColor: "gray",
           color: "white",
         };
+        break;
+      case "link":
+        hoverStyles = {
+          ...buttonStyles, 
+          color: "magenta",
+        }
         break;
       case "primary":
       // Add other cases for different variants as needed
@@ -253,7 +282,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <Comp
         style={{ ...styles }}
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={className}
         ref={ref}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -265,4 +294,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = "Button";
 
-export { Button, buttonVariants };
+export default Button;

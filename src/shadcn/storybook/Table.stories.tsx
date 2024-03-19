@@ -1,6 +1,6 @@
 import { ListGroup } from 'react-bootstrap';
 import type { Meta, StoryObj } from '@storybook/react';
-
+import { FaRegTrashAlt, FaEdit } from 'react-icons/fa';
 import {
   Slots,
   Slot,
@@ -14,7 +14,7 @@ import {
   TableRowState,
   Table,
 } from '@/index';
-import { Button } from '../components/ui/button';
+import Button from '../components/ui/button';
 
 
 const meta = {
@@ -94,8 +94,8 @@ export const TableTest: Story = {
           </Table.Body>
         </Table>
         <div>
-        <Button onClick={(e)=> console.log('clicked')} variant='ghost'>{'Button'}</Button>
-        <Button onClick={(e)=> console.log('clicked 2')} variant='destructive'>{'Button'}</Button>
+        <Button onClick={(e)=> console.log('clicked')} position='left-edge' variant='outline-primary'>{<FaEdit/>}</Button>
+        <Button onClick={(e)=> console.log('clicked 2')} position='right-edge' variant='outline-destructive'>{<FaRegTrashAlt/>}</Button>
         </div>
       </>
     ),
