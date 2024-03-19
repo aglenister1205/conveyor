@@ -75,7 +75,6 @@ export const TableTest: Story = {
   args: {
     children: (
       <>
-      <Navbar modelNames={['hello']}/>
         {/* <Navbar modelNames={['hello']}/> */}
         <Table
           fields={['hello', 'world']}
