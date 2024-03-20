@@ -15,6 +15,10 @@ import {
   Table,
 } from '@/index';
 import Button from '../components/ui/button';
+import { HoverCard, HoverCardTrigger, HoverCardContent } from '../components/ui/hover-card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
+import { Dialog, DialogClose, DialogDescription, DialogTrigger, DialogTitle, DialogPortal, DialogOverlay, DialogFooter, DialogContent, DialogHeader } from '../components/ui/dialog';
+import React from 'react';
 
 
 const meta = {
@@ -75,7 +79,7 @@ export const TableTest: Story = {
   args: {
     children: (
       <>
-        {/* <Navbar modelNames={['hello']}/> */}
+        {/*<Navbar modelNames={['hello']}/>*/}
         <Table
           fields={['hello', 'world']}
           data={[
@@ -95,6 +99,36 @@ export const TableTest: Story = {
         <div>
         <Button onClick={(e)=> console.log('clicked')} position='left-edge' variant='outline-primary'>{<FaEdit/>}</Button>
         <Button onClick={(e)=> console.log('clicked 2')} position='right-edge' variant='outline-destructive'>{<FaRegTrashAlt/>}</Button>
+        <HoverCard>
+          <HoverCardTrigger>
+            <Button variant='link'>{'Task 1'}</Button>
+          </HoverCardTrigger>
+          <HoverCardContent>
+            <Card>
+              <CardHeader>
+                <CardTitle>Title</CardTitle>
+                <CardDescription>Description</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p>Additional content goes here</p>
+              </CardContent>
+            </Card>
+          </HoverCardContent>
+        </HoverCard>
+        <Dialog>
+          <DialogTrigger>
+            Open
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Are you absolutely sure?</DialogTitle>
+              <DialogDescription>
+                This action cannot be undone. This will permanently delete your account
+                and remove your data from our servers.
+              </DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
         </div>
       </>
     ),
