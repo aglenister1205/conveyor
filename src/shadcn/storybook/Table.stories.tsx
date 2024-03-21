@@ -19,6 +19,9 @@ import { HoverCard, HoverCardTrigger, HoverCardContent } from '../components/ui/
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Dialog, DialogClose, DialogDescription, DialogTrigger, DialogTitle, DialogPortal, DialogOverlay, DialogFooter, DialogContent, DialogHeader } from '../components/ui/dialog';
 import React from 'react';
+import { PaginationContent, Pagination, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '../components/ui/pagination';
+import { Popover, PopoverContent, PopoverTrigger } from '../components/ui/popover';
+import { Textarea } from '../components/ui/textarea';
 
 
 const meta = {
@@ -117,18 +120,23 @@ export const TableTest: Story = {
         </HoverCard>
         <Dialog>
           <DialogTrigger>
-            Open
+            Open Dialog
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Are you absolutely sure?</DialogTitle>
+              <DialogTitle>This is the dialog box Demo</DialogTitle>
               <DialogDescription>
-                This action cannot be undone. This will permanently delete your account
-                and remove your data from our servers.
+                This is where the components within the dialog box will be displayed
               </DialogDescription>
             </DialogHeader>
+            <DialogClose/>
           </DialogContent>
         </Dialog>
+        <Popover>
+          <PopoverTrigger>Open</PopoverTrigger>
+          <PopoverContent>Place content for the popover here.</PopoverContent>
+        </Popover>
+        <Textarea/>
         </div>
       </>
     ),

@@ -1,14 +1,31 @@
-"use client"
+import * as React from "react";
+import * as PopoverPrimitive from "@radix-ui/react-popover";
 
-import * as React from "react"
-import * as PopoverPrimitive from "@radix-ui/react-popover"
+import { cn } from "../../utils";
 
-import { cn } from "../../utils"
+const Popover = PopoverPrimitive.Root;
+// Define styles for each part of the popover content
+const popoverContentStyle: React.CSSProperties = {
+  zIndex: 50,
+  width: "18rem",
+  padding: "1rem",
+  border: "1px solid #E5E7EB", // border-stone-200
+  backgroundColor: "white",
+  color: "#374151", // text-stone-950
+  boxShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.1)", // shadow-md
+  borderRadius: "0.375rem", // sm:rounded-md
+};
 
-const Popover = PopoverPrimitive.Root
+const PopoverTriggerStyle: React.CSSProperties = {
+  backgroundColor: "blue",
+  color: "white",
+  border: "1px blue solid",
+  padding: "6px 12px",
+  borderRadius: 0,
+  fontSize: "16px",
+  cursor: "pointer",
 
-const PopoverTrigger = PopoverPrimitive.Trigger
-
+};
 const PopoverContent = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>
@@ -18,14 +35,52 @@ const PopoverContent = React.forwardRef<
       ref={ref}
       align={align}
       sideOffset={sideOffset}
-      className={cn(
-        "z-50 w-72 rounded-md border border-stone-200 bg-white p-4 text-stone-950 shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 dark:border-stone-800 dark:bg-stone-950 dark:text-stone-50",
-        className
-      )}
+      className={cn(className)}
+      style={{ ...popoverContentStyle }}
       {...props}
     />
   </PopoverPrimitive.Portal>
-))
-PopoverContent.displayName = PopoverPrimitive.Content.displayName
+));
+PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 
-export { Popover, PopoverTrigger, PopoverContent }
+
+const PopoverTrigger = React.forwardRef<
+  React.ElementRef<typeof PopoverPrimitive.Trigger>,
+  React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Trigger>
+>(({ children, style, ...props }, ref) => {
+  const HoverTriggerStyle: React.CSSProperties = {
+    ...PopoverTriggerStyle,
+    border: "1px darkblue solid",
+    backgroundColor: "darkblue",
+  };
+  
+  // State to track hover state
+  const [isHovered, setIsHovered] = React.useState<boolean>(false);
+  
+  // Event handlers
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+  
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+  // Merge styles based on hover state
+  const mergedStyles = isHovered ? { ...style, ...HoverTriggerStyle } : { ...style, ...PopoverTriggerStyle };
+
+  return (
+    <PopoverPrimitive.Trigger
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      ref={ref}
+      style={mergedStyles}
+      {...props}
+    >
+      {children}
+    </PopoverPrimitive.Trigger>
+  );
+});
+
+PopoverTrigger.displayName = "PopoverTrigger";
+
+export { Popover, PopoverTrigger, PopoverContent };

@@ -1,24 +1,38 @@
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "../../utils"
+import { cn } from "../../utils";
 
 export interface TextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+
+// Define styles for the textarea component
+const textareaStyle: React.CSSProperties = {
+  flex: 1,
+  minHeight: "80px",
+  width: "100%",
+  borderRadius: "0.375rem", // rounded-md
+  border: "1px solid #E5E7EB", // border-stone-200
+  backgroundColor: "white",
+  padding: "0.75rem", // px-3 py-2
+  fontSize: "0.875rem", // text-sm
+  outline: "none",
+  boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)", // ring-offset-white
+  transition: "box-shadow 0.2s, border-color 0.2s",
+};
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, ...props }, ref) => {
     return (
       <textarea
-        className={cn(
-          "flex min-h-[80px] w-full rounded-md border border-stone-200 bg-white px-3 py-2 text-sm ring-offset-white placeholder:text-stone-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-stone-800 dark:bg-stone-950 dark:ring-offset-stone-950 dark:placeholder:text-stone-400 dark:focus-visible:ring-stone-300",
-          className
-        )}
+        className={cn(className)}
         ref={ref}
+        style={{ ...textareaStyle }}
         {...props}
       />
-    )
+    );
   }
-)
-Textarea.displayName = "Textarea"
+);
+Textarea.displayName = "Textarea";
 
-export { Textarea }
+export { Textarea };
+

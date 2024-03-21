@@ -8,7 +8,8 @@ const Pagination = ({ className, ...props }: React.ComponentProps<"nav">) => (
   <nav
     role="navigation"
     aria-label="pagination"
-    className={cn("mx-auto flex w-full justify-center", className)}
+    className={className}
+    style={{ display: "flex", justifyContent: "center", width: "100%" }}
     {...props}
   />
 )
@@ -20,7 +21,8 @@ const PaginationContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ul
     ref={ref}
-    className={cn("flex flex-row items-center gap-1", className)}
+    className={className}
+    style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: "1rem" }}
     {...props}
   />
 ))
@@ -30,7 +32,7 @@ const PaginationItem = React.forwardRef<
   HTMLLIElement,
   React.ComponentProps<"li">
 >(({ className, ...props }, ref) => (
-  <li ref={ref} className={cn("", className)} {...props} />
+  <li ref={ref} className={className} {...props} />
 ))
 PaginationItem.displayName = "PaginationItem"
 
@@ -62,10 +64,10 @@ const PaginationPrevious = ({
   <PaginationLink
     aria-label="Go to previous page"
     size="default"
-    className={cn("gap-1 pl-2.5", className)}
+    className={className}
     {...props}
   >
-    <ChevronLeft className="h-4 w-4" />
+    <ChevronLeft style={{ height: "1rem", width: "1rem" }} />
     <span>Previous</span>
   </PaginationLink>
 )
@@ -78,11 +80,11 @@ const PaginationNext = ({
   <PaginationLink
     aria-label="Go to next page"
     size="default"
-    className={cn("gap-1 pr-2.5", className)}
+    className={className}
     {...props}
   >
     <span>Next</span>
-    <ChevronRight className="h-4 w-4" />
+    <ChevronRight style={{ height: "1rem", width: "1rem" }} />
   </PaginationLink>
 )
 PaginationNext.displayName = "PaginationNext"
@@ -93,11 +95,12 @@ const PaginationEllipsis = ({
 }: React.ComponentProps<"span">) => (
   <span
     aria-hidden
-    className={cn("flex h-9 w-9 items-center justify-center", className)}
+    className={className}
+    style={{ display: "flex", height: "1.5rem", width: "1.5rem", alignItems: "center", justifyContent: "center" }}
     {...props}
   >
-    <MoreHorizontal className="h-4 w-4" />
-    <span className="sr-only">More pages</span>
+    <MoreHorizontal style={{ height: "1rem", width: "1rem" }}/>
+    <span>More pages</span>
   </span>
 )
 PaginationEllipsis.displayName = "PaginationEllipsis"

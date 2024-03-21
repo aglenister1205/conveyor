@@ -5,7 +5,6 @@ import { X } from "lucide-react"
 import { cn } from "../../utils"
 
 const Dialog = DialogPrimitive.Root
-const DialogTrigger = DialogPrimitive.Trigger
 const DialogPortal = DialogPrimitive.Portal
 const DialogClose = DialogPrimitive.Close
 // Define styles for each component
@@ -34,6 +33,28 @@ const dialogContentStyle: React.CSSProperties = {
   transitionDuration: '200ms', // duration-200
 };
 
+const dialogCloseStyle: React.CSSProperties = {
+  right: '1rem', // right-4
+  top: '1rem', // top-4
+  borderRadius: '0.125rem', // rounded-sm
+  opacity: 0.7, // opacity-70
+  transition: 'opacity 200ms', // transition-opacity
+  cursor: 'pointer',
+  backgroundColor: 'rgba(0, 0, 0, 0.04)', // data-[state=open]:bg-stone-100
+  color: '#6B7280', // data-[state=open]:text-stone-500
+  borderColor: '#D1D5DB', // dark:ring-offset-stone-950
+};
+
+const DialogTriggerStyle: React.CSSProperties = {
+  backgroundColor: "gray",
+  color: "white",
+  border: "1px gray solid",
+  padding: "6px 12px",
+  borderRadius: 0,
+  fontSize: "16px",
+  cursor: "pointer",
+};
+
 // DialogOverlay Component
 const DialogOverlay = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ style, ...props }, ref) => (
@@ -59,13 +80,9 @@ const DialogContent = React.forwardRef<
       style={{...dialogContentStyle}}
     >
       {children}
-      <DialogPrimitive.Close>
-        <X/>
-        <span>Close</span>
-      </DialogPrimitive.Close>
     </DialogPrimitive.Content>
   </DialogPortal>
-))
+));
 DialogContent.displayName = DialogPrimitive.Content.displayName
 
 // DialogHeader Component
@@ -104,12 +121,61 @@ const DialogDescription: React.FC<React.HTMLAttributes<HTMLParagraphElement>> = 
 );
 DialogDescription.displayName = "DialogDescription";
 
+const customCloseDialog = () => {
+  return (
+  <DialogClose style={dialogCloseStyle}>
+    <X/>
+    Close
+  </DialogClose>
+  );
+}
+
+// Apply styles based on hover state
+
+const DialogTrigger = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Trigger>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Trigger>
+>(({ children, style, ...props }, ref) => {
+  const HoverTriggerStyle: React.CSSProperties = {
+    ...DialogTriggerStyle,
+    border: "1px darkgray solid",
+    backgroundColor: "darkgray",
+  };
+  
+  // State to track hover state
+  const [isHovered, setIsHovered] = React.useState<boolean>(false);
+  
+  // Event handlers
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+  
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+  // Merge styles based on hover state
+  const mergedStyles = isHovered ? { ...style, ...HoverTriggerStyle } : { ...style, ...DialogTriggerStyle };
+
+  return (
+    <DialogPrimitive.Trigger
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      ref={ref}
+      style={mergedStyles}
+      {...props}
+    >
+      {children}
+    </DialogPrimitive.Trigger>
+  );
+});
+
+DialogTrigger.displayName = "DialogTrigger";
 
 export {
   Dialog,
   DialogPortal,
   DialogOverlay,
-  DialogClose,
+  customCloseDialog as DialogClose,
   DialogTrigger,
   DialogContent,
   DialogHeader,
