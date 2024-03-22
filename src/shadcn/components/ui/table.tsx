@@ -8,10 +8,10 @@ const Table = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div className="relative w-full overflow-auto">
     <table
-      ref={ref}
-      className={cn("w-full caption-bottom text-sm", className)}
-      {...props}
-    />
+        ref={ref}
+        style={{ width: '100%' }} // Example inline style
+        {...props}
+      />
   </div>
 ))
 Table.displayName = "Table"
@@ -20,7 +20,11 @@ const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <thead ref={ref} className={cn("[&_tr]:border-b", className)} {...props} />
+  <thead
+      ref={ref}
+      style={{ borderBottom: '1px solid black' }} // Example inline style
+      {...props}
+    />
 ))
 TableHeader.displayName = "TableHeader"
 
@@ -29,10 +33,10 @@ const TableBody = React.forwardRef<
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
   <tbody
-    ref={ref}
-    className={cn("[&_tr:last-child]:border-0", className)}
-    {...props}
-  />
+      ref={ref}
+      style={{ borderBottom: '1px solid black' }} // Example inline style
+      {...props}
+    />
 ))
 TableBody.displayName = "TableBody"
 
@@ -41,13 +45,10 @@ const TableFooter = React.forwardRef<
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
   <tfoot
-    ref={ref}
-    className={cn(
-      "border-t bg-stone-100/50 font-medium [&>tr]:last:border-b-0 dark:bg-stone-800/50",
-      className
-    )}
-    {...props}
-  />
+      ref={ref}
+      style={{ borderTop: '1px solid black' }} // Example inline style
+      {...props}
+    />
 ))
 TableFooter.displayName = "TableFooter"
 
@@ -56,13 +57,10 @@ const TableRow = React.forwardRef<
   React.HTMLAttributes<HTMLTableRowElement>
 >(({ className, ...props }, ref) => (
   <tr
-    ref={ref}
-    className={cn(
-      "border-b transition-colors hover:bg-stone-100/50 data-[state=selected]:bg-stone-100 dark:hover:bg-stone-800/50 dark:data-[state=selected]:bg-stone-800",
-      className
-    )}
-    {...props}
-  />
+  ref={ref}
+  style={{}} // Example inline style
+  {...props}
+/>
 ))
 TableRow.displayName = "TableRow"
 
@@ -71,13 +69,10 @@ const TableHead = React.forwardRef<
   React.ThHTMLAttributes<HTMLTableCellElement>
 >(({ className, ...props }, ref) => (
   <th
-    ref={ref}
-    className={cn(
-      "h-12 px-4 text-left align-middle font-medium text-stone-500 [&:has([role=checkbox])]:pr-0 dark:text-stone-400",
-      className
-    )}
-    {...props}
-  />
+      ref={ref}
+      style={{ textAlign: 'center' }} // Example inline style
+      {...props}
+    />
 ))
 TableHead.displayName = "TableHead"
 
@@ -86,10 +81,10 @@ const TableCell = React.forwardRef<
   React.TdHTMLAttributes<HTMLTableCellElement>
 >(({ className, ...props }, ref) => (
   <td
-    ref={ref}
-    className={cn("p-4 align-middle [&:has([role=checkbox])]:pr-0", className)}
-    {...props}
-  />
+      ref={ref}
+      style={{ textAlign: 'center', borderLeft: '1px solid black', borderRight: '1px solid black'}} // Example inline style
+      {...props}
+    />
 ))
 TableCell.displayName = "TableCell"
 
@@ -98,10 +93,10 @@ const TableCaption = React.forwardRef<
   React.HTMLAttributes<HTMLTableCaptionElement>
 >(({ className, ...props }, ref) => (
   <caption
-    ref={ref}
-    className={cn("mt-4 text-sm text-stone-500 dark:text-stone-400", className)}
-    {...props}
-  />
+      ref={ref}
+      style={{ marginTop: '4px', fontSize: '14px'}} // Example inline style
+      {...props}
+    />
 ))
 TableCaption.displayName = "TableCaption"
 

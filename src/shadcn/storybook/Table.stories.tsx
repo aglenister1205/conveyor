@@ -7,12 +7,9 @@ import {
   Navbar,
   Alert,
   Conveyor,
-  TableBody,
   useData,
   Lenses,
   Lens,
-  TableRowState,
-  Table,
 } from '@/index';
 import Button from '../components/ui/button';
 import { HoverCard, HoverCardTrigger, HoverCardContent } from '../components/ui/hover-card';
@@ -21,8 +18,8 @@ import { Dialog, DialogClose, DialogDescription, DialogTrigger, DialogTitle, Dia
 import React from 'react';
 import { PaginationContent, Pagination, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '../components/ui/pagination';
 import { Popover, PopoverContent, PopoverTrigger } from '../components/ui/popover';
-import { Textarea } from '../components/ui/textarea';
-
+import { Textarea } from '../components/ui/textarea'
+import {Table, TableBody, TableHeader, TableHead, TableRow, TableCell, TableCaption} from '../components/ui/table';
 
 const meta = {
   title: 'shadcn/components/Table',
@@ -68,36 +65,29 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 
-const DemoCell = () => {
-  const { data } = useData();
-  return (
-    <>
-      <Lens lens={TableRowState.VALUE}>{data.hello} monkey</Lens>
-      <Lens lens={TableRowState.EDIT}>noinput</Lens>
-    </>
-  );
-};
-
 export const TableTest: Story = {
   args: {
     children: (
       <>
-        {/*<Navbar modelNames={['hello']}/>*/}
-        <Table
-          fields={['hello', 'world']}
-          data={[
-            { hello: 'hello', world: 'world' },
-            { hello: 'hellow', world: 'wurld' },
-          ]}
-          actionsConfig={{ showActions: true }}
-        >
-          <Table.Body>
-            <Table.Row>
-              <td>
-                <DemoCell />
-              </td>
-            </Table.Row>
-          </Table.Body>
+        <Navbar modelNames={['hello']}/>
+        <Table>
+          <TableCaption>A list of your recent invoices.</TableCaption>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="w-[100px]">Invoice</TableHead>
+              <TableHead>Status</TableHead>
+              <TableHead>Method</TableHead>
+              <TableHead className="text-right">Amount</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            <TableRow>
+              <TableCell className="font-medium">INV001</TableCell>
+              <TableCell>Paid</TableCell>
+              <TableCell>Credit Card</TableCell>
+              <TableCell className="text-right">$250.00</TableCell>
+            </TableRow>
+          </TableBody>
         </Table>
         <div>
         <Button onClick={(e)=> console.log('clicked')} position='left-edge' variant='outline-primary'>{<FaEdit/>}</Button>
