@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLocalStorage, useMedia } from 'react-use';
-export type ThemeName = 'darkly' | 'flatly' ;
+export type ThemeName = 'darkly' | 'lightly' ;
 
 type CSSLoader = () => Promise<typeof import('*?inline')> | Promise<string>;
 
@@ -42,7 +42,7 @@ const LazyThemeLoader: {
         }
     `),
     // Customization of light mode can be done here
-    flatly: () => Promise.resolve(`
+    lightly: () => Promise.resolve(`
         :root {
             --bg-color: #F9F9F9;
             --text-color: black;
@@ -86,7 +86,7 @@ export const useThemeSelect = () => {
 
     const systemTheme = useMedia('(prefers-color-scheme: dark)')
         ? 'darkly'
-        : 'flatly';
+        : 'lightly';
 
     useEffect(() => {
         const loadTheme = async () => {

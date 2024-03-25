@@ -21,7 +21,7 @@ export const Navbar = ({ modelNames }: { modelNames: string[] | null }) => {
             <Helmet defer>
                 <style>{themeCSS}</style>
             </Helmet>
-            <ReactNavBar className='mb-3' variant='dark' bg='primary' expand='sm'>
+            <ReactNavBar className='mb-3' variant='dark' expand='sm' style={{backgroundColor: "var(--primary)"}}>
                 <Container>
                     {/* <Link to={'/'}> */}
                     <ReactNavBar.Brand>
@@ -71,8 +71,8 @@ export const Navbar = ({ modelNames }: { modelNames: string[] | null }) => {
                                     Dark
                                 </NavDropdown.Item>
                                 <NavDropdown.Item
-                                    active={currentTheme === 'flatly'}
-                                    eventKey='flatly'
+                                    active={currentTheme === 'lightly'}
+                                    eventKey='lightly'
                                 >
                                     Light
                                 </NavDropdown.Item>
