@@ -9,17 +9,17 @@ const popoverContentStyle: React.CSSProperties = {
   zIndex: 50,
   width: "18rem",
   padding: "1rem",
-  border: "1px solid #E5E7EB", // border-stone-200
-  backgroundColor: "white",
-  color: "#374151", // text-stone-950
+  backgroundColor: "var(--bg-color)",
+  color: "var(--text-color)",
+  border: "1px solid var(--table-border)", // border-stone-200
   boxShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.1)", // shadow-md
   borderRadius: "0.375rem", // sm:rounded-md
 };
 
 const PopoverTriggerStyle: React.CSSProperties = {
-  backgroundColor: "blue",
+  backgroundColor: "var(--primary)",
   color: "white",
-  border: "1px blue solid",
+  border: "1px var(--primary) solid",
   padding: "6px 12px",
   borderRadius: 0,
   fontSize: "16px",
@@ -50,8 +50,8 @@ const PopoverTrigger = React.forwardRef<
 >(({ children, style, ...props }, ref) => {
   const HoverTriggerStyle: React.CSSProperties = {
     ...PopoverTriggerStyle,
-    border: "1px darkblue solid",
-    backgroundColor: "darkblue",
+    border: "1px var(--primary-dark) solid",
+    backgroundColor: "var(--primary-dark)",
   };
   
   // State to track hover state

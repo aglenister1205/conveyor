@@ -50,9 +50,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     // Define button styles based on variant
     let buttonStyles: React.CSSProperties = {
-      backgroundColor: "blue",
+      backgroundColor: "var(--primary)",
       color: "white",
-      border: "1px blue solid",
+      border: "1px var(--primary) solid",
       padding: padding,
       borderRadius: borderRadius,
       fontSize: "16px",
@@ -71,16 +71,16 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       case "outline-primary":
         buttonStyles = {
           ...buttonStyles,
-          borderColor: "blue",
-          color: "blue",
+          borderColor: "var(--primary)",
+          color: "var(--primary)",
           backgroundColor: "transparent",
         };
         break;
       case "outline-secondary":
         buttonStyles = {
           ...buttonStyles,
-          borderColor: "gray",
-          color: "gray",
+          borderColor: "var(--secondary)",
+          color: "var(--secondary)",
           backgroundColor: "transparent",
         };
         break;
@@ -95,8 +95,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       case "outline-success":
         buttonStyles = {
           ...buttonStyles,
-          borderColor: "green",
-          color: "green",
+          borderColor: "var(--success)",
+          color: "var(--success)",
           backgroundColor: "transparent",
         };
         break;
@@ -112,7 +112,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         buttonStyles = {
           ...buttonStyles,
           borderColor: "transparent",
-          backgroundColor: "green",
+          backgroundColor: "var(--success)",
         };
         break;
       case "warning":
@@ -142,14 +142,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       case "secondary":
         buttonStyles = {
           ...buttonStyles, 
-          borderColor: "gray",
-          backgroundColor: "gray",
+          borderColor: "var(--secondary)",
+          backgroundColor: "var(--secondary)",
         }
         break;
       case "link":
         buttonStyles = {
           ...buttonStyles,
-          color: "cyan",
+          color: "var(--link)",
           borderColor: "transparent",
           backgroundColor: "transparent",
           textDecoration: "underline",
@@ -159,8 +159,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       default:  
         buttonStyles = {
           ...buttonStyles,
-          borderColor: "blue",
-          backgroundColor: "blue",
+          borderColor: "var(--primary)",
+          backgroundColor: "var(--primary)",
         };
         break;
       // Add other cases for different variants as needed
@@ -179,8 +179,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       case "success":
         hoverStyles = {
           ...buttonStyles,
-          borderColor: "darkgreen",
-          backgroundColor: "darkgreen",
+          borderColor: "var(--success-dark)",
+          backgroundColor: "var(--success-dark)",
         }
         break;
       case "warning":
@@ -193,7 +193,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       case "outline-primary":
         hoverStyles = {
           ...buttonStyles,
-          backgroundColor: "blue",
+          backgroundColor: "var(--primary)",
           color: "white",
         };
         break;
@@ -207,7 +207,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       case "outline-secondary":
         hoverStyles = {
           ...buttonStyles,
-          backgroundColor: "gray",
+          backgroundColor: "var(--secondary)",
           color: "white",
         };
         break;
@@ -228,15 +228,15 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       case "outline-success": 
         hoverStyles = {
         ...buttonStyles,
-          backgroundColor: "green",
+          backgroundColor: "var(--success)",
           color: "white",
         };
         break;
       case "secondary":
         hoverStyles = {
           ...buttonStyles,
-          borderColor: "darkgray",
-          backgroundColor: "darkgray",
+          borderColor: "gray",
+          backgroundColor: "gray",
         };
         break;
       case "ghost":
@@ -258,8 +258,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       default:
         hoverStyles = {
           ...buttonStyles,
-          borderColor: "darkblue",
-          backgroundColor: "darkblue",
+          borderColor: "var(--primary-dark)",
+          backgroundColor: "var(--primary-dark)",
         };
         break;
     }

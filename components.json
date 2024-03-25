@@ -7,7 +7,7 @@
     "config": "shadcn/tailwind.config.js",
     "css": "shadcn/css/global.css",
     "baseColor": "stone",
-    "cssVariables": false,
+    "cssVariables": true,
     "prefix": ""
   },
   "aliases": {

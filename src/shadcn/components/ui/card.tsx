@@ -3,9 +3,9 @@ import * as React from "react";
 // Define styles for each component
 const cardStyle: React.CSSProperties = {
   borderRadius: "0.5rem",
-  border: "1px solid #E5E7EB",
-  backgroundColor: "white",
-  color: "#334155",
+  backgroundColor: "var(--bg-color)",
+  color: "var(--text-color)",
+  border: "1px solid var(--table-border)", // border-stone-200
   boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
 };
 

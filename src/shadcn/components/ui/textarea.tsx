@@ -11,8 +11,9 @@ const textareaStyle: React.CSSProperties = {
   minHeight: "80px",
   width: "100%",
   borderRadius: "0.375rem", // rounded-md
-  border: "1px solid #E5E7EB", // border-stone-200
-  backgroundColor: "white",
+  backgroundColor: "var(--input-bg)",
+  color: "var(--text-color)",
+  border: "1px solid var(--success)", // border-stone-200
   padding: "0.75rem", // px-3 py-2
   fontSize: "0.875rem", // text-sm
   outline: "none",

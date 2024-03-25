@@ -25,8 +25,9 @@ const dialogContentStyle: React.CSSProperties = {
   maxWidth: '32rem', // max-w-lg
   transform: 'translate(-50%, -50%)',
   gap: '1rem', // gap-4
-  border: '1px solid #E5E7EB', // border-stone-200
-  backgroundColor: 'white',
+  backgroundColor: "var(--bg-color)",
+  color: "var(--text-color)",
+  border: "1px solid var(--table-border)", // border-stone-200
   padding: '1.5rem', // p-6
   boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)', // shadow-lg
   borderRadius: '0.375rem', // sm:rounded-lg
@@ -46,9 +47,9 @@ const dialogCloseStyle: React.CSSProperties = {
 };
 
 const DialogTriggerStyle: React.CSSProperties = {
-  backgroundColor: "gray",
+  backgroundColor: "var(--secondary)",
   color: "white",
-  border: "1px gray solid",
+  border: "1px var(--secondary) solid",
   padding: "6px 12px",
   borderRadius: 0,
   fontSize: "16px",
@@ -138,8 +139,8 @@ const DialogTrigger = React.forwardRef<
 >(({ children, style, ...props }, ref) => {
   const HoverTriggerStyle: React.CSSProperties = {
     ...DialogTriggerStyle,
-    border: "1px darkgray solid",
-    backgroundColor: "darkgray",
+    border: "1px gray solid",
+    backgroundColor: "gray",
   };
   
   // State to track hover state

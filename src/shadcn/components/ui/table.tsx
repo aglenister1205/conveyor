@@ -1,7 +1,5 @@
 import * as React from "react"
 
-import { cn } from "../../utils"
-
 const Table = React.forwardRef<
   HTMLTableElement,
   React.HTMLAttributes<HTMLTableElement>
@@ -22,7 +20,7 @@ const TableHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <thead
       ref={ref}
-      style={{ borderBottom: '1px solid black' }} // Example inline style
+      style={{ borderBottom: '1px solid var(--table-border)', borderTop: '1px solid var(--table-border)'}} // Example inline style
       {...props}
     />
 ))
@@ -34,7 +32,7 @@ const TableBody = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <tbody
       ref={ref}
-      style={{ borderBottom: '1px solid black' }} // Example inline style
+      style={{ borderBottom: '1px solid var(--table-border)' }} // Example inline style
       {...props}
     />
 ))
@@ -46,7 +44,7 @@ const TableFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <tfoot
       ref={ref}
-      style={{ borderTop: '1px solid black' }} // Example inline style
+      style={{ borderTop: '1px solid var(--table-border)', color: "var(--table-border)"}} // Example inline style
       {...props}
     />
 ))
@@ -70,7 +68,7 @@ const TableHead = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <th
       ref={ref}
-      style={{ textAlign: 'center' }} // Example inline style
+      style={{ textAlign: 'center', borderLeft: '1px solid var(--table-border)', borderRight: '1px solid var(--table-border)'}} // Example inline style
       {...props}
     />
 ))
@@ -82,7 +80,7 @@ const TableCell = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <td
       ref={ref}
-      style={{ textAlign: 'center', borderLeft: '1px solid black', borderRight: '1px solid black'}} // Example inline style
+      style={{ textAlign: 'center', borderLeft: '1px solid var(--table-border)', borderRight: '1px solid var(--table-border)'}} // Example inline style
       {...props}
     />
 ))
@@ -94,7 +92,7 @@ const TableCaption = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <caption
       ref={ref}
-      style={{ marginTop: '4px', fontSize: '14px'}} // Example inline style
+      style={{ marginTop: '4px', fontSize: '14px', color: "var(--text-color)"}} // Example inline style
       {...props}
     />
 ))
