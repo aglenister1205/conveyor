@@ -4,7 +4,7 @@ const Table = React.forwardRef<
   HTMLTableElement,
   React.HTMLAttributes<HTMLTableElement>
 >(({ className, ...props }, ref) => (
-  <div className="relative w-full overflow-auto">
+  <div style={{position:"relative", width:"100%", overflowX:"auto"}}>
     <table
         ref={ref}
         style={{ width: '100%' }} // Example inline style

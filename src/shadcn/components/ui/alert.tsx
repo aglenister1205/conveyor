@@ -1,59 +1,118 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
+import * as React from "react";
 
-import { cn } from "../../utils"
+type Variant = "default" | "destructive" | "success";
 
-const alertVariants = cva(
-  "relative w-full rounded-lg border border-stone-200 p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-stone-950 dark:border-stone-800 dark:[&>svg]:text-stone-50",
+export interface AlertProps extends React.ButtonHTMLAttributes<HTMLDivElement> {
+  variant?: Variant;
+}
+
+const alertVariants: Record<
+  Variant,
   {
-    variants: {
-      variant: {
-        default: "bg-white text-stone-950 dark:bg-stone-950 dark:text-stone-50",
-        destructive:
-          "border-red-500/50 text-red-500 dark:border-red-500 [&>svg]:text-red-500 dark:border-red-900/50 dark:text-red-900 dark:dark:border-red-900 dark:[&>svg]:text-red-900",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-    },
+    container?: React.CSSProperties;
+    icon?: React.CSSProperties;
+    content?: React.CSSProperties;
+    title?: React.CSSProperties;
+    description?: React.CSSProperties;
   }
-)
+> = {
+  default: {
+    container: {
+      position: "relative",
+      width: "100%",
+      borderRadius: "0.375rem",
+      border: "1px solid #E5E7EB",
+      padding: "1rem",
+    },
+    icon: {
+      position: "absolute",
+      left: "1rem",
+      top: "1rem",
+      color: "#4B5563",
+    },
+    content: {
+      transform: "translateY(-3px)",
+    },
+    title: {
+      marginBottom: "0.25rem",
+      fontWeight: 500,
+      lineHeight: "1.25rem",
+      letterSpacing: "-0.0125rem",
+    },
+    description: {
+      fontSize: "0.875rem",
+      lineHeight: "1.25rem",
+    },
+  },
+  destructive: {
+    container: {
+      borderColor: "#EF4444",
+    },
+    icon: {
+      color: "#EF4444",
+    },
+  },
+  success: {
+    container: {
+      borderColor: "#22C55E",
+    },
+    icon: {
+      color: "#22C55E",
+    },
+  },
+};
 
-const Alert = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof alertVariants>
->(({ className, variant, ...props }, ref) => (
-  <div
-    ref={ref}
-    role="alert"
-    className={cn(alertVariants({ variant }), className)}
-    {...props}
-  />
-))
-Alert.displayName = "Alert"
+const Alert = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & { variant?: Variant }>(
+  ({ className, variant, ...props }, ref) => {
 
-const AlertTitle = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-  <h5
-    ref={ref}
-    className={cn("mb-1 font-medium leading-none tracking-tight", className)}
-    {...props}
-  />
-))
-AlertTitle.displayName = "AlertTitle"
+    let styles: React.CSSProperties = {...alertVariants.default.container}
+    
+    if(variant && variant !== "default") {
+      if(variant === "success") {
+      styles = {...styles, ...alertVariants.success.container};
+      } else {
+        styles = {...styles, ...alertVariants.destructive.container};
+      }
+    }
+    return (
+      <div
+        ref={ref}
+        role="alert"
+        style={styles}
+        className={className}
+        {...props}
+      />
+    );
+  }
+);
+Alert.displayName = "Alert";
 
-const AlertDescription = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("text-sm [&_p]:leading-relaxed", className)}
-    {...props}
-  />
-))
-AlertDescription.displayName = "AlertDescription"
+const AlertTitle = React.forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>(
+  ({ className, ...props }, ref) => (
+    <h5
+      ref={ref}
+      className={className}
+      style={{
+        ...alertVariants.default.title,
+      }}
+      {...props}
+    />
+  )
+);
+AlertTitle.displayName = "AlertTitle";
 
-export { Alert, AlertTitle, AlertDescription }
+const AlertDescription = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        ...alertVariants.default.description,
+      }}
+      {...props}
+    />
+  )
+);
+AlertDescription.displayName = "AlertDescription";
+
+export { Alert, AlertTitle, AlertDescription };

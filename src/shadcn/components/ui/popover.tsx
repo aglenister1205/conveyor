@@ -1,8 +1,6 @@
 import * as React from "react";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 
-import { cn } from "../../utils";
-
 const Popover = PopoverPrimitive.Root;
 // Define styles for each part of the popover content
 const popoverContentStyle: React.CSSProperties = {
@@ -35,7 +33,7 @@ const PopoverContent = React.forwardRef<
       ref={ref}
       align={align}
       sideOffset={sideOffset}
-      className={cn(className)}
+      className={className}
       style={{ ...popoverContentStyle }}
       {...props}
     />

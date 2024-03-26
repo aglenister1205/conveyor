@@ -1,19 +1,17 @@
 import * as React from "react";
-
-import { cn } from "../../utils";
-
 export interface TextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
 
 // Define styles for the textarea component
 const textareaStyle: React.CSSProperties = {
   flex: 1,
-  minHeight: "80px",
+  minHeight: "47px",
+  minWidth: "225px",
   width: "100%",
   borderRadius: "0.375rem", // rounded-md
   backgroundColor: "var(--input-bg)",
   color: "var(--text-color)",
-  border: "1px solid var(--success)", // border-stone-200
+  border: "1px solid var(--success)",
   padding: "0.75rem", // px-3 py-2
   fontSize: "0.875rem", // text-sm
   outline: "none",
@@ -25,7 +23,8 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, ...props }, ref) => {
     return (
       <textarea
-        className={cn(className)}
+        rows={1}
+        className={className}
         ref={ref}
         style={{ ...textareaStyle }}
         {...props}
