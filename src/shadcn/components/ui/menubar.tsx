@@ -22,11 +22,11 @@ const Menubar = React.forwardRef(
         display: 'flex',
         height: '2.5rem',
         alignItems: 'center',
-        borderRadius: '0.375rem',
-        border: '1px solid #E5E7EB',
-        backgroundColor: 'white',
+        borderRadius: '0',
+        border: 'none',
+        backgroundColor: 'var(--primary)',
         padding: '0.5rem',
-        color: '#4B5563',
+        color: 'var(--text-color)',
       }}
       className={className}
       {...props}
@@ -51,6 +51,9 @@ const MenubarTrigger = React.forwardRef(
         fontSize: '0.875rem',
         fontWeight: '500',
         outline: 'none',
+        backgroundColor: 'transparent',
+        borderColor: 'transparent',
+        color: 'var(--text-color)',
       }}
       className={className}
       {...props}

@@ -20,6 +20,8 @@ import { PaginationContent, Pagination, PaginationEllipsis, PaginationItem, Pagi
 import { Popover, PopoverContent, PopoverTrigger } from '../components/ui/popover';
 import { Textarea } from '../components/ui/textarea'
 import {Table, TableBody, TableHeader, TableHead, TableRow, TableCell, TableCaption} from '../components/ui/table';
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from '../components/ui/navigation-menu';
+import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarTrigger } from '../components/ui/menubar';
 
 const meta = {
   title: 'shadcn/components/Table',
@@ -69,6 +71,34 @@ export const TableTest: Story = {
   args: {
     children: (
       <>
+        <Menubar>
+          <MenubarMenu>
+            <MenubarTrigger>File</MenubarTrigger>
+            <MenubarContent>
+              <MenubarItem>
+                New Tab <MenubarShortcut>⌘T</MenubarShortcut>
+              </MenubarItem>
+              <MenubarItem>New Window</MenubarItem>
+              <MenubarSeparator />
+              <MenubarItem>Share</MenubarItem>
+              <MenubarSeparator />
+              <MenubarItem>Print</MenubarItem>
+            </MenubarContent>
+          </MenubarMenu>
+          <MenubarMenu>
+            <MenubarTrigger>Models</MenubarTrigger>
+            <MenubarContent>
+              <MenubarItem>
+                New Tab <MenubarShortcut>⌘T</MenubarShortcut>
+              </MenubarItem>
+              <MenubarItem>New Window</MenubarItem>
+              <MenubarSeparator />
+              <MenubarItem>Share</MenubarItem>
+              <MenubarSeparator />
+              <MenubarItem>Print</MenubarItem>
+            </MenubarContent>
+          </MenubarMenu>
+</Menubar>
         <Navbar modelNames={['hello']}/>
         <Table>
           <TableCaption>A list of your recent invoices.</TableCaption>
