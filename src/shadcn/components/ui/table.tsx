@@ -4,7 +4,7 @@ const Table = React.forwardRef<
   HTMLTableElement,
   React.HTMLAttributes<HTMLTableElement>
 >(({ className, ...props }, ref) => (
-  <div style={{position:"relative", width:"100%", overflowX:"auto"}}>
+  <div style={{position:"relative", width:"100%", overflowX:"auto", borderRadius: '0.5rem', marginBottom: '0.5rem', border: '1px solid var(--table-border)'}}>
     <table
         ref={ref}
         style={{ width: '100%' }} // Example inline style
@@ -20,7 +20,7 @@ const TableHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <thead
       ref={ref}
-      style={{ borderBottom: '1px solid var(--table-border)', borderTop: '1px solid var(--table-border)'}} // Example inline style
+      style={{ borderTopLeftRadius: '0.5rem', borderTopRightRadius: '0.5rem',borderTop: '1px solid var(--table-border)'}} // Example inline style
       {...props}
     />
 ))
@@ -32,7 +32,7 @@ const TableBody = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <tbody
       ref={ref}
-      style={{ borderBottom: '1px solid var(--table-border)' }} // Example inline style
+      style={{}} // Example inline style
       {...props}
     />
 ))
@@ -56,7 +56,7 @@ const TableRow = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <tr
   ref={ref}
-  style={{}} // Example inline style
+  style={{borderBottom: '1px solid var(--table-border)'}} // Example inline style
   {...props}
 />
 ))

@@ -13,7 +13,7 @@ import {
 } from '@/index';
 import Button from '../components/ui/button';
 import { HoverCard, HoverCardTrigger, HoverCardContent } from '../components/ui/hover-card';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
+import { Card, CardContent, CardDescription, CardField, CardHeader, CardTitle, Deck } from '../components/ui/card';
 import { Dialog, DialogClose, DialogDescription, DialogTrigger, DialogTitle, DialogPortal, DialogOverlay, DialogFooter, DialogContent, DialogHeader } from '../components/ui/dialog';
 import React from 'react';
 import { PaginationContent, Pagination, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '../components/ui/pagination';
@@ -66,42 +66,70 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const obj=`
+{
+  timeMachine: 
+  {
+    time: 'Date'
+    name: 'string
+  }
+}
+`
+
 
 export const TableTest: Story = {
   args: {
     children: (
       <>
-        <Menubar>
-          <MenubarMenu>
-            <MenubarTrigger>File</MenubarTrigger>
-            <MenubarContent>
-              <MenubarItem>
-                New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-              </MenubarItem>
-              <MenubarItem>New Window</MenubarItem>
-              <MenubarSeparator />
-              <MenubarItem>Share</MenubarItem>
-              <MenubarSeparator />
-              <MenubarItem>Print</MenubarItem>
-            </MenubarContent>
-          </MenubarMenu>
-          <MenubarMenu>
-            <MenubarTrigger>Models</MenubarTrigger>
-            <MenubarContent>
-              <MenubarItem>
-                New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-              </MenubarItem>
-              <MenubarItem>New Window</MenubarItem>
-              <MenubarSeparator />
-              <MenubarItem>Share</MenubarItem>
-              <MenubarSeparator />
-              <MenubarItem>Print</MenubarItem>
-            </MenubarContent>
-          </MenubarMenu>
-</Menubar>
+      <Deck>
+      <Card>
+              <CardHeader>
+                <CardTitle>Title</CardTitle>
+                <CardDescription>Description</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <CardField>Additional content goes here</CardField>
+                <CardField>Additional content goes here</CardField>
+              <CardField>Additional content goes here</CardField>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>TitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitle</CardTitle>
+              </CardHeader>
+              <CardContent>
+              <CardField>{obj}{obj}</CardField>
+              <CardField>Additional content goes here</CardField>
+              <CardField>Additional content goes here</CardField>
+              </CardContent>
+            </Card>
+            <Card>
+            <CardHeader>
+                <CardTitle>Title</CardTitle>
+                <CardDescription>Description</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <CardField>Additional content goes here</CardField>
+                <CardField>Additional content goes here</CardField>
+                <CardField>Additional content goes here</CardField>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Title</CardTitle>
+                <CardDescription>Description</CardDescription>
+              </CardHeader>
+              <CardContent>
+              <CardField>Additional content goes here</CardField>
+              <CardField>Additional content goes here</CardField>
+              <CardField>Additional content goes here</CardField>
+              </CardContent>
+            </Card>
+            </Deck>
         <Navbar modelNames={['hello']}/>
         <Table>
-          <TableCaption>A list of your recent invoices.</TableCaption>
           <TableHeader>
             <TableRow>
               <TableHead className="w-[100px]">Invoice</TableHead>
