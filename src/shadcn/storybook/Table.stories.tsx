@@ -22,6 +22,7 @@ import { Textarea } from '../components/ui/textarea'
 import {Table, TableBody, TableHeader, TableHead, TableRow, TableCell, TableCaption} from '../components/ui/table';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from '../components/ui/navigation-menu';
 import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarTrigger } from '../components/ui/menubar';
+import { Input, InputGroup, Label } from '../components/ui/inputs';
 
 const meta = {
   title: 'shadcn/components/Table',
@@ -184,7 +185,11 @@ export const TableTest: Story = {
           <PopoverTrigger>Open</PopoverTrigger>
           <PopoverContent>Place content for the popover here.</PopoverContent>
         </Popover>
-        <Textarea/>
+        <InputGroup>
+        <Label>search</Label>
+        <Input placeholder='search'/>
+        <Label>search</Label>
+        </InputGroup>
         </div>
       </>
     ),
