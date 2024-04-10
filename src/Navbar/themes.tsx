@@ -15,6 +15,7 @@ export const darkTheme=`
         --secondary-dark: #95a5a6;
         --success-dark: #18bc9c;
         --table-border: #444;
+        --label-bg: #2f2f2f;
         --input-bg: #191919;
         --font-family: Lato,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
         --font-size: 1rem;
@@ -50,6 +51,7 @@ export const lightTheme=`
         --secondary-dark: #444;
         --success-dark: #00bc8c;
         --table-border: #dee2e6;
+        --label-bg: #e9e9e9;
         --input-bg: #FFF;
         --font-family: Lato,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
         --font-size: 1rem;

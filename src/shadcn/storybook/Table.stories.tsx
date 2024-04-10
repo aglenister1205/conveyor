@@ -186,9 +186,9 @@ export const TableTest: Story = {
           <PopoverContent>Place content for the popover here.</PopoverContent>
         </Popover>
         <InputGroup>
-        <Label>search</Label>
-        <Input placeholder='search'/>
-        <Label>search</Label>
+        <Label position='left'>search</Label>
+        <Input placeholder='search' position='middle'/>
+        <Label position='right'>search</Label>
         </InputGroup>
         </div>
       </>
