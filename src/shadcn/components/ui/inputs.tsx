@@ -16,7 +16,8 @@ const inputGroupStyle: React.CSSProperties = {
     display: "flex",
     width: "100%",
     borderRadius: "0.375rem",
-    border: "1px solid var(--table-border)"
+    border: "1px solid var(--table-border)",
+    backgroundColor: "transparent",
 };
 
 const formControlStyle: React.CSSProperties = {
@@ -25,7 +26,8 @@ const formControlStyle: React.CSSProperties = {
     color: "var(--text-color)",
     border: "1px solid transparent",
     outline: "none",
-    padding: ".375rem .375rem"
+    padding: ".375rem .375rem",
+    colorScheme: "var(--color-scheme)"
 };
 
 const formLeft: React.CSSProperties = {
@@ -42,6 +44,11 @@ const formMiddle: React.CSSProperties = {
 const formRight: React.CSSProperties = {
     borderLeftColor: "var(--table-border)",
     borderRadius:  "0 0.375rem 0.375rem 0",
+}
+
+const formAlone: React.CSSProperties = {
+    borderRadius: "0.375rem",
+    borderColor: "var(--success)",
 }
 
 const inputGroupAppendStyle: React.CSSProperties = {
@@ -77,6 +84,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         conditionalStyles = formRight;
     } else if (position === 'middle') {
         conditionalStyles = formMiddle;
+    } else if (position === 'alone') {
+        conditionalStyles = formAlone;
     }
 
     return (
@@ -85,7 +94,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             type={type}
             placeholder={placeholder}
             value={value}
-            style={{ ...formControlStyle, ...conditionalStyles,...style}}
+            style={{ ...formControlStyle, ...conditionalStyles, ...style}}
             {...props}
             />
         );

@@ -185,11 +185,18 @@ export const TableTest: Story = {
           <PopoverTrigger>Open</PopoverTrigger>
           <PopoverContent>Place content for the popover here.</PopoverContent>
         </Popover>
+        <Textarea/>
         <InputGroup>
-        <Label position='left'>search</Label>
-        <Input placeholder='search' position='middle'/>
+        <Input placeholder='search' position='left' type='text'/>
         <Label position='right'>search</Label>
         </InputGroup>
+        <InputGroup>
+        <Label position='left'>Date</Label>
+        <Input position='middle' type='datetime-local'/>
+        <Label position='right'>Picker</Label>
+        </InputGroup>
+        <Input position='alone'/>
+        <Input position='alone' type='datetime-local'/>
         </div>
       </>
     ),

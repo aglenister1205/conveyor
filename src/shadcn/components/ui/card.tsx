@@ -1,57 +1,10 @@
 import * as React from "react";
+import { useState } from "react";
 
 // Define styles for each component
 const deckStyle: React.CSSProperties = {
   flexWrap: "wrap",
 }
-
-const cardStyle: React.CSSProperties = {
-  borderRadius: "0.5rem",
-  backgroundColor: "var(--bg-color)",
-  color: "var(--text-color)",
-  border: "1px solid var(--table-border)", // border-stone-200
-  boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
-  display: 'inline-block',
-  margin: '0.5rem',
-  padding: '1rem',
-  width: '300px',
-  height: '300px',
-  overflow: 'hidden',
-};
-
-const cardHeaderStyle: React.CSSProperties = {
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '6px', // This might not directly translate to "space-y-1.5". Consider adjusting padding or margin in children instead.
-  textAlign: 'center',
-  height: '65px',
-};
-
-const cardTitleStyle: React.CSSProperties = {
-  fontSize: '24px',
-  fontWeight: '600',
-  lineHeight: '1.25',
-  letterSpacing: '-0.025em',
-  overflow: 'hidden',
-  wordBreak: 'break-all', // Break long words
-  minHeight: '30px',
-  maxHeight: '60px',
-};
-
-const cardDescriptionStyle: React.CSSProperties = {
-  fontSize: '12px', // text-sm
-  color: '#6B7280', // text-stone-500
-  flexShrink: '0',
-  marginBottom: '0.5rem',
-};
-
-const cardContentStyle: React.CSSProperties = {
-  backgroundColor: 'var(--table-border)',
-  height: '205px',
-  padding: '0.5rem',
-  overflow: 'hidden', // Allow content to scroll if it overflows
-  whiteSpace: 'normal', // Allow text to wrap within the content
-};
 
 const cardFooterStyle: React.CSSProperties = {
   display: 'flex',
@@ -83,22 +36,64 @@ Deck.displayName = "Deck";
 
 // Card Component
 const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ style, ...props }, ref) => (
+  ({ style, children, ...props }, ref) => {
+    const [isHovered, setIsHovered] = useState(false);
+
+  // Event handlers for mouse enter and leave
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  return (
     <div
       ref={ref}
-      style={{ ...cardStyle, ...style }}
+      className={`card ${isHovered ? "card-hovered" : ""}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       {...props}
-    />
-  )
-);
-Card.displayName = "Card";
+    >
+      {/* Render title always */}
+      {React.Children.map(children, (child) => {
+        if (React.isValidElement(child)) {
+          if (child.type && ((child.type as any).displayName === "CardHeader" || (child.type as any).displayName === "CardTitle")) {
+            return React.cloneElement(child);
+          }
+        }
+        return null;
+      })}
+      {/* Render the content only if hovered */}
+      <div className={`card-content ${isHovered ? "card-content-hovered" : "card-content-hidden"}`}>
+        {isHovered &&
+          React.Children.map(children, (child) => {
+            if (React.isValidElement(child)) {
+              if (
+                child.type &&
+                ((child.type as any).displayName !== "CardHeader" || 
+                (child.type as any).displayName !== "CarsTitle"
+              )) {
+                return React.cloneElement(child);
+              }
+            }
+            return null;
+          })}
+      </div>
+    </div>
+  );
+});
+
+Card.displayName = "Card";  
 
 // CardHeader Component
 const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ style, ...props }, ref) => (
     <div
+      className="card-header"
       ref={ref}
-      style={{ ...cardHeaderStyle, ...style }}
+      style={{...style }}
       {...props}
     />
   )
@@ -109,8 +104,9 @@ CardHeader.displayName = "CardHeader";
 const CardTitle = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLHeadingElement>>(
   ({ style, ...props }, ref) => (
     <h3
+      className="card-title"
       ref={ref}
-      style={{ ...cardTitleStyle, ...style }}
+      style={{...style }}
       {...props}
     />
   )
@@ -121,8 +117,9 @@ CardTitle.displayName = "CardTitle";
 const CardDescription = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(
   ({ style, ...props }, ref) => (
     <p
+      className="card-description"
       ref={ref}
-      style={{ ...cardDescriptionStyle, ...style }}
+      style={{...style }}
       {...props}
     />
   )
@@ -133,8 +130,9 @@ CardDescription.displayName = "CardDescription";
 const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ style, ...props }, ref) => (
     <div
-      ref={ref}
-      style={{ ...cardContentStyle, ...style }}
+    className="card-content"
+    ref={ref}
+      style={{...style }}
       {...props}
     />
   )
