@@ -18,6 +18,8 @@ const inputGroupStyle: React.CSSProperties = {
     borderRadius: "0.375rem",
     border: "1px solid var(--table-border)",
     backgroundColor: "transparent",
+    marginTop: "8px",
+    marginBottom: "8px",
 };
 
 const formControlStyle: React.CSSProperties = {

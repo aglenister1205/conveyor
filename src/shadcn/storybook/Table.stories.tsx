@@ -13,7 +13,7 @@ import {
 } from '@/index';
 import Button from '../components/ui/button';
 import { HoverCard, HoverCardTrigger, HoverCardContent } from '../components/ui/hover-card';
-import { Card, CardContent, CardDescription, CardField, CardHeader, CardTitle, Deck } from '../components/ui/card';
+import { Card, CardContent, CardDescription, CardField, CardHeader, CardTitle, Deck } from '../Cards/card';
 import { Dialog, DialogClose, DialogDescription, DialogTrigger, DialogTitle, DialogPortal, DialogOverlay, DialogFooter, DialogContent, DialogHeader } from '../components/ui/dialog';
 import React from 'react';
 import { PaginationContent, Pagination, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '../components/ui/pagination';
@@ -117,6 +117,50 @@ export const TableTest: Story = {
               </CardContent>
             </Card>
 
+            <Card>
+              <CardHeader>
+                <CardTitle>Title</CardTitle>
+                <CardDescription>Description</CardDescription>
+              </CardHeader>
+              <CardContent>
+              <CardField>Additional content goes here</CardField>
+              <CardField>Additional content goes here</CardField>
+              <CardField>Additional content goes here</CardField>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Title</CardTitle>
+                <CardDescription>Description</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <CardField>Additional content goes here</CardField>
+                <CardField>Additional content goes here</CardField>
+              <CardField>Additional content goes here</CardField>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>TitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitle</CardTitle>
+              </CardHeader>
+              <CardContent>
+              <CardField>{obj}{obj}</CardField>
+              <CardField>Additional content goes here</CardField>
+              <CardField>Additional content goes here</CardField>
+              </CardContent>
+            </Card>
+            <Card>
+            <CardHeader>
+                <CardTitle>Title</CardTitle>
+                <CardDescription>Description</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <CardField>Additional content goes here</CardField>
+                <CardField>Additional content goes here</CardField>
+                <CardField>Additional content goes here</CardField>
+              </CardContent>
+            </Card>
             <Card>
               <CardHeader>
                 <CardTitle>Title</CardTitle>

@@ -72,8 +72,8 @@ const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElemen
             if (React.isValidElement(child)) {
               if (
                 child.type &&
-                ((child.type as any).displayName !== "CardHeader" || 
-                (child.type as any).displayName !== "CarsTitle"
+                ((child.type as any).displayName !== "CardHeader" &&
+                (child.type as any).displayName !== "CardTitle"
               )) {
                 return React.cloneElement(child);
               }
