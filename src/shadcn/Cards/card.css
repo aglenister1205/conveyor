@@ -57,7 +57,10 @@
   overflow: hidden;
   white-space: normal;
   transition: height 0.5s ease;
-  height: 200px;
+  max-height: 200px;
+  align-items: center;
+  justify-content: center;
+  vertical-align: center;
 }
 
 .card-content-hidden {
@@ -132,8 +135,10 @@
 
 .circle-content {
   opacity: 1; /* Initially show the content */
-  transform: scale(1); /* Initially show the content at full size */
+  transform: scale(0.6); /* Initially show the content at full size */
   transition: opacity 0.3s ease, transform 0.3s ease;
+  padding: 10px; /* Optional: Add padding to the content */
+  box-sizing: border-box; /* Include padding in content size */
 }
 
 .card-hovered .circle {
@@ -146,6 +151,11 @@
 .card-hovered .circle-content {
   opacity: 1; /* Hide the content when not hovered */
   transform: scale(1); /* Shrink the content when not hovered */
+  transition: all 0.3s ease;
+}
+
+.card-hovered .card-content {
+  height: 200px;
 }
 
 .card-hovered .card-description {
