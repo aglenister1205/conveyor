@@ -1,0 +1,36 @@
+.scroll-area {
+    position: relative;
+    overflow: hidden;
+}
+
+.scrollbar {
+    display: flex;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+.scrollbar.vertical {
+    height: 100%;
+    width: 2.5px;
+    border-left: 1px solid transparent;
+    padding: 1px;
+}
+
+.scrollbar.horizontal {
+    height: 2.5px;
+    flex-direction: column;
+    border-top: 1px solid transparent;
+    padding: 1px;
+}
+
+.scroll-thumb {
+    flex: 1;
+    border-radius: 9999px;
+    background-color: var(--border);
+}
+
+.scroll-viewport {
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+}

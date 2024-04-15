@@ -11,18 +11,18 @@ import {
   Lenses,
   Lens,
 } from '@/index';
-import Button from '../components/ui/button';
-import { HoverCard, HoverCardTrigger, HoverCardContent } from '../components/ui/hover-card';
-import { Card, CardContent, CardDescription, CardField, CardHeader, CardTitle, Deck } from '../Cards/card';
-import { Dialog, DialogClose, DialogDescription, DialogTrigger, DialogTitle, DialogPortal, DialogOverlay, DialogFooter, DialogContent, DialogHeader } from '../components/ui/dialog';
+import Button from '../components/Button/button';
+import { HoverCard, HoverCardTrigger, HoverCardContent } from '../components/HoverCard/hover-card';
+import { Card, CardContent, CardDescription, CardField, CardHeader, CardTitle, Deck } from '../components/Cards/card';
+import { Dialog, DialogClose, DialogDescription, DialogTrigger, DialogTitle, DialogPortal, DialogOverlay, DialogFooter, DialogContent, DialogHeader } from '../components/Dialog/dialog';
 import React from 'react';
 import { PaginationContent, Pagination, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '../components/ui/pagination';
-import { Popover, PopoverContent, PopoverTrigger } from '../components/ui/popover';
-import { Textarea } from '../components/ui/textarea'
-import {Table, TableBody, TableHeader, TableHead, TableRow, TableCell, TableCaption} from '../components/ui/table';
+import { Popover, PopoverContent, PopoverTrigger } from '../components/Popover/popover';
+import { Textarea } from '../components/TextArea/textarea'
+import {Table, TableBody, TableHeader, TableHead, TableRow, TableCell, TableCaption} from '../components/Table/table';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from '../components/ui/navigation-menu';
 import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarTrigger } from '../components/ui/menubar';
-import { Input, InputGroup, Label } from '../components/ui/inputs';
+import { Input, InputGroup, Label } from '../components/Inputs/inputs';
 
 const meta = {
   title: 'shadcn/components/Table',
@@ -231,16 +231,16 @@ export const TableTest: Story = {
         </Popover>
         <Textarea/>
         <InputGroup>
-        <Input placeholder='search' position='left' type='text'/>
-        <Label position='right'>search</Label>
+          <Input placeholder='search' className='input-left'/>
+          <Label className='right-label'>search</Label>
         </InputGroup>
         <InputGroup>
-        <Label position='left'>Date</Label>
-        <Input position='middle' type='datetime-local'/>
-        <Label position='right'>Picker</Label>
+          <Label className='left-label'>Date</Label>
+          <Input className='input-middle' type='datetime-local'/>
+          <Label className='right-label'>Picker</Label>
         </InputGroup>
-        <Input position='alone'/>
-        <Input position='alone' type='datetime-local'/>
+        <Input className='input-alone'/>
+        <Input className='input-alone'/>
         </div>
       </>
     ),

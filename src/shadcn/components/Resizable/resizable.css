@@ -1,0 +1,32 @@
+.resizable-panel-group {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+}
+
+.resizable-handle {
+    position: relative;
+    display: flex;
+    width: 1px;
+    align-items: center;
+    justify-content: center;
+    background-color: #EDF2F7;
+}
+
+.resizable-handle-with-handle {
+    z-index: 10;
+    display: flex;
+    height: 1.5rem;
+    width: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.25rem;
+    border: 1px solid #D1D5DB;
+    background-color: #EDF2F7;
+}
+
+.vertical-grip {
+    height: 1rem;
+    width: 1rem; 
+}

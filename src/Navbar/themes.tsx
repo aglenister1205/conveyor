@@ -9,8 +9,8 @@ export const darkTheme=`
         --primary: #375a7f;
         --secondary: #444;
         --success: #00bc8c;
-        --red: #e74c3c;
-        --orange: #f39c12;
+        --destructive: #e74c3c;
+        --warning: #f39c12;
         --link: #3498db;
         --primary-dark: #2c3e50;
         --secondary-dark: #95a5a6;
@@ -46,8 +46,8 @@ export const lightTheme=`
         --primary: #2c3e50;
         --secondary: #95a5a6;
         --success: #18bc9c;
-        --red: #e74c3c;
-        --orange: #f39c12;
+        --destructive: #e74c3c;
+        --warning: #f39c12;
         --link: #3498db;
         --primary-dark: #375a7f;
         --secondary-dark: #444;

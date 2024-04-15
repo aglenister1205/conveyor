@@ -1,0 +1,60 @@
+/* stylelint-disable alpha-value-notation */
+/* stylelint-disable color-function-notation */
+
+/* dialog-overlay */
+.dialog-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition-duration: 200ms;
+}
+
+  /* dialog-content */
+.dialog-content {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 50;
+    width: 100%;
+    max-width: 32rem;
+    transform: translate(-50%, -50%);
+    gap: 1rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--table-border);
+    padding: 1.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 0.375rem;
+    transition-duration: 200ms;
+}
+
+  /* dialog-close */
+.dialog-close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    border-radius: 0.125rem;
+    opacity: 0.7;
+    transition: opacity 200ms;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.04);
+    color: #6B7280;
+    border-color: #D1D5DB;
+}
+
+  /* dialog-trigger */
+.dialog-trigger {
+    background-color: var(--secondary);
+    color: white;
+    border: 1px var(--secondary) solid;
+    padding: 6px 12px;
+    border-radius: 0;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.dialog-trigger:hover {
+    background-color: grey;
+    border: 1px grey solid;
+}

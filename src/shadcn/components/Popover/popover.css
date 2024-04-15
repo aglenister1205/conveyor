@@ -1,0 +1,30 @@
+/* stylelint-disable color-function-notation */
+/* stylelint-disable alpha-value-notation */
+
+/* Popover content styles */
+.popover-content {
+    z-index: 50;
+    width: 18rem;
+    padding: 1rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--table-border);
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 0.375rem;
+}
+
+  /* Popover trigger styles */
+.popover-trigger {
+    background-color: var(--primary);
+    color: white;
+    border: 1px var(--primary) solid;
+    padding: 6px 12px;
+    border-radius: 0;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.popover-trigger:hover {
+    background-color: var(--primary-dark);
+    border: 1px var(--primary-dark) solid;
+}

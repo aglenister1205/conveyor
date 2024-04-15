@@ -1,0 +1,52 @@
+/* alert.css */
+
+/* Default variant styles */
+.alert-container {
+    position: relative;
+    width: 100%;
+    border-radius: 0.375rem;
+    border: 1px solid var(--table-border);
+    padding: 1rem;
+  }
+  
+  .alert-icon {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    color: var(--secondary);
+  }
+  
+  .alert-content {
+    transform: translateY(-3px);
+  }
+  
+  .alert-title {
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    letter-spacing: -0.0125rem;
+  }
+  
+  .alert-description {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  /* Destructive variant styles */
+  .alert-container.destructive {
+    border-color: var(--destructive);
+  }
+  
+  .alert-icon.destructive {
+    color: var(--destructive);
+  }
+  
+  /* Success variant styles */
+  .alert-container.success {
+    border-color: var(--success);
+  }
+  
+  .alert-icon.success {
+    color: var(--success);
+  }
+  

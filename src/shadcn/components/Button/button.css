@@ -1,0 +1,208 @@
+/* stylelint-disable shorthand-property-no-redundant-values */
+
+/* Button Base Styles */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: var(--font-family);
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+    min-height: 38px;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    margin: 0;
+  }
+  
+  /* Button Variants */
+  .primary {
+    background-color: var(--primary);
+    color: white;
+    border: 1px solid var(--primary);
+  }
+  
+  .destructive {
+    background-color: red;
+    color: white;
+    border: 1px solid red;
+  }
+  
+  .success {
+    background-color: var(--success);
+    color: white;
+    border: 1px solid var(--success);
+  }
+  
+  .warning {
+    background-color: orange;
+    color: white;
+    border: 1px solid orange;
+  }
+  
+  .secondary {
+    background-color: var(--secondary);
+    color: white;
+    border: 1px solid var(--secondary);
+  }
+  
+  .ghost {
+    background-color: transparent;
+    color: gray;
+    border: 1px solid transparent;
+  }
+  
+  .link {
+    background-color: transparent;
+    color: var(--link);
+    border: 1px solid transparent;
+    text-decoration: underline;
+  }
+  
+  /* Outline Variants */
+  .outline-primary {
+    background-color: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+  }
+  
+  .outline-secondary {
+    background-color: transparent;
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
+  }
+  
+  .outline-black {
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+  }
+  
+  .outline-success {
+    background-color: transparent;
+    color: var(--success);
+    border: 1px solid var(--success);
+  }
+  
+  .outline-warning {
+    background-color: transparent;
+    color: orange;
+    border: 1px solid orange;
+  }
+  
+  .outline-destructive {
+    background-color: transparent;
+    color: red;
+    border: 1px solid red;
+  }
+  
+  /* Button Positions */
+  .position-alone {
+    border-radius: 5px;
+  }
+  
+  .position-middle {
+    border-radius: 0;
+  }
+  
+  .position-left-edge {
+    border-radius: 5px 0 0 5px;
+  }
+  
+  .position-right-edge {
+    border-radius: 0 5px 5px 0;
+  }
+  
+  /* Button Sizes */
+  .size-default {
+    padding: 6px 12px;
+  }
+  
+  .size-sm {
+    padding: 3px 6px;
+  }
+  
+  .size-lg {
+    padding: 10px 20px;
+  }
+  
+  .size-icon {
+    padding: 8px 8px;
+  }
+  
+  /* Button Hover States */
+  .button:hover {
+    filter: brightness(1.1);
+  }
+  
+  .button.primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+  }
+  
+  .button.destructive:hover {
+    background-color: darkred;
+    border-color: darkred;
+  }
+  
+  .button.success:hover {
+    background-color: var(--success-dark);
+    border-color: var(--success-dark);
+  }
+  
+  .button.warning:hover {
+    background-color: darkorange;
+    border-color: darkorange;
+  }
+  
+  .button.secondary:hover {
+    background-color: gray;
+    border-color: gray;
+  }
+  
+  .button.ghost:hover {
+    color: white;
+    border-color: gray;
+    background-color: gray;
+  }
+  
+  .button.link:hover {
+    color: magenta;
+  }
+  
+  /* Outline Primary Button Hover */
+.outline-primary:hover {
+    background-color: var(--primary);
+    color: white;
+  }
+  
+  /* Outline Destructive Button Hover */
+  .outline-destructive:hover {
+    background-color: red;
+    color: white;
+  }
+  
+  /* Outline Success Button Hover */
+  .outline-success:hover {
+    background-color: var(--success);
+    color: white;
+  }
+  
+  /* Outline Warning Button Hover */
+  .outline-warning:hover {
+    background-color: orange;
+    color: white;
+  }
+  
+  /* Outline Secondary Button Hover */
+  .outline-secondary:hover {
+    background-color: var(--secondary);
+    color: white;
+  }
+  
+  /* Outline Black Button Hover */
+  .outline-black:hover {
+    background-color: black;
+    color: white;
+  }

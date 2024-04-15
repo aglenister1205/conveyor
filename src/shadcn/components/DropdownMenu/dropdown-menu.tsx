@@ -1,6 +1,7 @@
 import * as React from "react" 
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu"
 import { Check, ChevronRight, Circle } from "lucide-react"
+import "./dropdown-menu.css"; // Import the generated CSS file
 
 const DropdownMenu = DropdownMenuPrimitive.Root
 
@@ -22,23 +23,11 @@ const DropdownMenuSubTrigger = React.forwardRef<
 >(({ className, inset, children, ...props }, ref) => (
     <DropdownMenuPrimitive.SubTrigger
       ref={ref}
-      style={{
-        display: 'flex',
-        cursor: 'default',
-        userSelect: 'none',
-        alignItems: 'center',
-        borderRadius: '0.25rem',
-        padding: '0.375rem 0.75rem',
-        fontSize: '0.875rem',
-        outline: 'none',
-        transition: 'background-color 0.3s',
-        backgroundColor: inset ? 'transparent' : 'white',
-        color: inset ? 'white' : 'black',
-      }}
+      className={`dropdown-menu-sub-trigger ${inset ? 'inset' : ''}`} // Use the generated class names
       {...props}
     >
       {children}
-      <ChevronRight style={{ marginLeft: 'auto', height: '1rem', width: '1rem' }} />
+      <ChevronRight className="chevron-icon" />
     </DropdownMenuPrimitive.SubTrigger>
   )
 )
@@ -50,17 +39,7 @@ const DropdownMenuSubContent = React.forwardRef<
   >(({ className, ...props }, ref) => (
     <DropdownMenuPrimitive.SubContent
       ref={ref}
-      style={{
-        zIndex: 50,
-        minWidth: '8rem',
-        overflow: 'hidden',
-        borderRadius: '0.375rem',
-        border: '1px solid #E5E7EB',
-        backgroundColor: 'white',
-        padding: '0.25rem',
-        color: '#111827',
-        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06)',
-      }}
+      className="dropdown-menu-sub-content" // Use the generated class name
       {...props}
     />
   )
@@ -75,17 +54,7 @@ const DropdownMenuContent = React.forwardRef<
       <DropdownMenuPrimitive.Content
         ref={ref}
         sideOffset={sideOffset}
-        style={{
-          zIndex: 50,
-          minWidth: '8rem',
-          overflow: 'hidden',
-          borderRadius: '0.375rem',
-          border: '1px solid #E5E7EB',
-          backgroundColor: 'white',
-          padding: '0.25rem',
-          color: '#111827',
-          boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06)',
-        }}
+        className="dropdown-menu-content" // Use the generated class name
         {...props}
       />
     </DropdownMenuPrimitive.Portal>
@@ -101,20 +70,7 @@ const DropdownMenuItem = React.forwardRef<
   >(({ className, inset, ...props }, ref) => (
     <DropdownMenuPrimitive.Item
       ref={ref}
-      style={{
-        position: 'relative',
-        display: 'flex',
-        cursor: 'default',
-        userSelect: 'none',
-        alignItems: 'center',
-        borderRadius: '0.25rem',
-        padding: '0.375rem 0.75rem',
-        fontSize: '0.875rem',
-        outline: 'none',
-        transition: 'background-color 0.3s',
-        backgroundColor: inset ? 'transparent' : 'white',
-        color: inset ? 'white' : 'black',
-      }}
+      className={`dropdown-menu-item ${inset ? 'inset' : ''}`} // Use the generated class names
       {...props}
     />
   )
@@ -127,25 +83,12 @@ const DropdownMenuCheckboxItem = React.forwardRef<
   >(({ className, children, checked, ...props }, ref) => (
     <DropdownMenuPrimitive.CheckboxItem
       ref={ref}
-      style={{
-        position: 'relative',
-        display: 'flex',
-        cursor: 'default',
-        userSelect: 'none',
-        alignItems: 'center',
-        borderRadius: '0.25rem',
-        padding: '0.375rem 0.75rem',
-        fontSize: '0.875rem',
-        outline: 'none',
-        transition: 'background-color 0.3s',
-        backgroundColor: 'white',
-        color: 'black',
-      }}
+      className="dropdown-menu-checkbox-item" // Use the generated class name
       checked={checked}
       {...props}
     >
-      <span style={{ position: 'absolute', left: '0.75rem' }}>
-        <Check style={{ height: '1rem', width: '1rem' }} />
+      <span className="check-icon">
+        <Check />
       </span>
       {children}
     </DropdownMenuPrimitive.CheckboxItem>
@@ -160,24 +103,11 @@ const DropdownMenuRadioItem = React.forwardRef<
   >(({ className, children, ...props }, ref) => (
     <DropdownMenuPrimitive.RadioItem
       ref={ref}
-      style={{
-        position: 'relative',
-        display: 'flex',
-        cursor: 'default',
-        userSelect: 'none',
-        alignItems: 'center',
-        borderRadius: '0.25rem',
-        padding: '0.375rem 0.75rem',
-        fontSize: '0.875rem',
-        outline: 'none',
-        transition: 'background-color 0.3s',
-        backgroundColor: 'white',
-        color: 'black',
-      }}
+      className="dropdown-menu-radio-item" // Use the generated class name
       {...props}
     >
-      <span style={{ position: 'absolute', left: '0.75rem' }}>
-        <Circle style={{ height: '1rem', width: '1rem' }} />
+      <span className="radio-icon">
+        <Circle />
       </span>
       {children}
     </DropdownMenuPrimitive.RadioItem>
@@ -193,14 +123,7 @@ const DropdownMenuLabel = React.forwardRef<
   >(({ className, inset, ...props }, ref) => (
     <DropdownMenuPrimitive.Label
       ref={ref}
-      style={{
-        paddingLeft: inset ? '2rem' : '0.75rem',
-        paddingRight: '0.75rem',
-        paddingTop: '0.375rem',
-        paddingBottom: '0.375rem',
-        fontSize: '0.875rem',
-        fontWeight: '600',
-      }}
+      className="dropdown-menu-label" // Use the generated class name
       {...props}
     />
   )
@@ -213,12 +136,7 @@ const DropdownMenuSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <DropdownMenuPrimitive.Separator
       ref={ref}
-      style={{
-        marginTop: '0.5rem',
-        marginBottom: '0.5rem',
-        height: '1px',
-        backgroundColor: '#E5E7EB',
-      }}
+      className="dropdown-menu-separator" // Use the generated class name
       {...props}
     />
   )
@@ -231,14 +149,8 @@ const DropdownMenuShortcut = ({
 }: React.HTMLAttributes<HTMLSpanElement>) => {
   return (
     <span
-      className={className}
+      className={`dropdown-menu-shortcut ${className}`} // Use the generated class name
       {...props}
-      style={{
-        marginLeft: 'auto',
-        fontSize: '0.75rem',
-        fontWeight: '400',
-        opacity: '0.6',
-      }}
     />
   );
 };

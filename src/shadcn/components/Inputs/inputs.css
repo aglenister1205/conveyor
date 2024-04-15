@@ -1,0 +1,78 @@
+
+.inputs {
+    display: flex;
+    width: 100%;
+    border-radius: 0.375rem;
+    border: 1px solid var(--table-border);
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.input-middle {
+    flex: 1;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border: 1px solid transparent;
+    outline: none;
+    padding: .375rem;
+    color-scheme: var(--color-scheme);
+    border-right-color: var(--table-border);
+    border-left-color: var(--table-border);
+    border-radius: 0;
+}
+
+.input-left {
+    flex: 1;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border: 1px solid transparent;
+    outline: none;
+    padding: .375rem;
+    color-scheme: var(--color-scheme);
+    border-right-color: var(--table-border);
+    border-radius: 0.375rem 0 0 0.375rem;
+}
+
+.input-right {
+    flex: 1;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border: 1px solid transparent;
+    outline: none;
+    padding: .375rem;
+    color-scheme: var(--color-scheme);
+    border-left-color: var(--table-border);
+    border-radius: 0 0.375rem 0.375rem 0;
+}
+
+.input-alone {
+    flex: 1;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border: 1px solid var(--success);
+    outline: none;
+    padding: .375rem;
+    color-scheme: var(--color-scheme);
+    border-radius: 0.375rem;
+    margin: 8px;
+}
+
+.right-label {
+    background-color: var(--label-bg);
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    width: 100px;
+    height: 100%;
+    text-align: center;
+    border-radius: 0 0.375rem 0.375rem 0;
+}
+
+.left-label {
+    background-color: var(--label-bg);
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    width: 100px;
+    height: 100%;
+    text-align: center;
+    border-radius: 0.375rem 0 0 0.375rem;
+}
