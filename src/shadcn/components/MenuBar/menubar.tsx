@@ -18,17 +18,7 @@ const Menubar = React.forwardRef(
     ref
   ) => (
     <MenubarPrimitive.Root
-      style={{
-        display: 'flex',
-        height: '2.5rem',
-        alignItems: 'center',
-        borderRadius: '0',
-        border: 'none',
-        backgroundColor: 'var(--primary)',
-        padding: '0.5rem',
-        color: 'var(--text-color)',
-      }}
-      className={className}
+      className={"menubar"}
       {...props}
     />
   )
@@ -41,21 +31,7 @@ const MenubarTrigger = React.forwardRef(
     ref
   ) => (
     <MenubarPrimitive.Trigger
-      style={{
-        display: 'flex',
-        cursor: 'default',
-        userSelect: 'none',
-        alignItems: 'center',
-        borderRadius: '0.25rem',
-        padding: '0.375rem 0.75rem',
-        fontSize: '0.875rem',
-        fontWeight: '500',
-        outline: 'none',
-        backgroundColor: 'transparent',
-        borderColor: 'transparent',
-        color: 'var(--text-color)',
-      }}
-      className={className}
+      className={"menubar-trigger"}
       {...props}
     />
   )
@@ -68,21 +44,11 @@ const MenubarSubTrigger = React.forwardRef(
     ref
   ) => (
     <MenubarPrimitive.SubTrigger
-      style={{
-        display: 'flex',
-        cursor: 'default',
-        userSelect: 'none',
-        alignItems: 'center',
-        borderRadius: '0.25rem',
-        padding: '0.375rem 0.75rem',
-        fontSize: '0.875rem',
-        outline: 'none',
-      }}
-      className={className}
+      className={"menubar-sub-trigger"}
       {...props}
     >
       {children}
-      <ChevronRight style={{ marginLeft: 'auto', height: '1rem', width: '1rem' }} />
+      <ChevronRight className="menubar-sub-trigger-chevron" />
     </MenubarPrimitive.SubTrigger>
   )
 )
@@ -94,18 +60,7 @@ const MenubarSubContent = React.forwardRef(
     ref
   ) => (
     <MenubarPrimitive.SubContent
-      style={{
-        zIndex: 50,
-        minWidth: '12rem',
-        overflow: 'hidden',
-        borderRadius: '0.375rem',
-        border: '1px solid #E5E7EB',
-        backgroundColor: 'white',
-        padding: '0.25rem',
-        color: '#4B5563',
-        boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-      }}
-      className={className}
+      className={"menubar-sub-content"}
       {...props}
     />
   )
@@ -128,18 +83,7 @@ const MenubarContent = React.forwardRef(
         align={align}
         alignOffset={alignOffset}
         sideOffset={sideOffset}
-        style={{
-          zIndex: 50,
-          minWidth: '12rem',
-          overflow: 'hidden',
-          borderRadius: '0.375rem',
-          border: '1px solid #E5E7EB',
-          backgroundColor: 'white',
-          padding: '0.25rem',
-          color: '#4B5563',
-          boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-        }}
-        className={className}
+        className={"menubar-content"}
         {...props}
       />
     </MenubarPrimitive.Portal>
@@ -153,17 +97,7 @@ const MenubarItem = React.forwardRef(
     ref
   ) => (
     <MenubarPrimitive.Item
-      style={{
-        display: 'flex',
-        cursor: 'default',
-        userSelect: 'none',
-        alignItems: 'center',
-        borderRadius: '0.25rem',
-        padding: '0.375rem 0.75rem',
-        fontSize: '0.875rem',
-        outline: 'none',
-      }}
-      className={className}
+      className={"menubar-item"}
       {...props}
     />
   )
@@ -176,22 +110,12 @@ const MenubarCheckboxItem = React.forwardRef(
     ref
   ) => (
     <MenubarPrimitive.CheckboxItem
-      style={{
-        display: 'flex',
-        cursor: 'default',
-        userSelect: 'none',
-        alignItems: 'center',
-        borderRadius: '0.25rem',
-        padding: '0.375rem 0.75rem',
-        fontSize: '0.875rem',
-        outline: 'none',
-      }}
-      className={className}
+      className={"menubar-checkbox-item"}
       checked={checked}
       {...props}
     >
       <span
-        className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center"
+        className=""
         style={{ display: 'flex', left: '0.375rem', height: '0.875rem', width: '0.875rem' }}
       >
         <MenubarPrimitive.ItemIndicator>
@@ -209,21 +133,10 @@ const MenubarRadioItem = React.forwardRef(
     ref
   ) => (
     <MenubarPrimitive.RadioItem
-      style={{
-        display: 'flex',
-        cursor: 'default',
-        userSelect: 'none',
-        alignItems: 'center',
-        borderRadius: '0.25rem',
-        padding: '0.375rem 0.75rem',
-        fontSize: '0.875rem',
-        outline: 'none',
-      }}
-      className={className}
+      className={"menubar-radio-item"}
       {...props}
     >
       <span
-        className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center"
         style={{ display: 'flex', left: '0.375rem', height: '0.875rem', width: '0.875rem' }}
       >
         <MenubarPrimitive.ItemIndicator>
@@ -241,15 +154,7 @@ const MenubarLabel = React.forwardRef(
     ref
   ) => (
     <MenubarPrimitive.Label
-      style={{
-        paddingLeft: inset ? '2rem' : undefined,
-        paddingRight: inset ? undefined : '0.75rem',
-        paddingTop: '0.375rem',
-        paddingBottom: '0.375rem',
-        fontSize: '0.875rem',
-        fontWeight: '600',
-      }}
-      className={className}
+      className={"menubar-label"}
       {...props}
     />
   )
@@ -262,12 +167,7 @@ const MenubarSeparator = React.forwardRef(
     ref
   ) => (
     <MenubarPrimitive.Separator
-      style={{
-        margin: '0 -0.5rem',
-        height: '1px',
-        backgroundColor: '#E5E7EB',
-      }}
-      className={className}
+      className={"menubar-separator"}
       {...props}
     />
   )
@@ -280,8 +180,7 @@ const MenubarShortcut = ({
 }: React.HTMLAttributes<HTMLSpanElement>) => {
   return (
     <span
-      className="ml-auto text-xs tracking-widest text-stone-500 dark:text-stone-400"
-      style={{ marginLeft: 'auto', fontSize: '0.75rem', letterSpacing: '0.05rem' }}
+      className="menubar-shortcut"
       {...props}
     />
   )

@@ -8,7 +8,7 @@ const NavigationMenu = React.forwardRef<
 >(({ style, children, ...props }, ref) => (
   <NavigationMenuPrimitive.Root
     ref={ref}
-    style={{ ...style, zIndex: 10, flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+    className="navigation-menu"
     {...props}
   >
     {children}
@@ -23,7 +23,7 @@ const NavigationMenuList = React.forwardRef<
 >(({ style, ...props }, ref) => (
   <NavigationMenuPrimitive.List
     ref={ref}
-    style={{ ...style, flex: 1, display: 'flex', listStyleType: 'none', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}
+    className="navigation-menu-list"
     {...props}
   />
 ));
@@ -37,31 +37,7 @@ const NavigationMenuTrigger = React.forwardRef<
 >(({ style, children, ...props }, ref) => (
   <NavigationMenuPrimitive.Trigger
     ref={ref}
-    style={{
-      display: 'inline-flex',
-      height: '2.5rem',
-      padding: '0 1rem',
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: '0.375rem',
-      backgroundColor: 'white',
-      border: '1px solid transparent',
-      color: 'rgba(55, 65, 81, 1)',
-      fontWeight: 500,
-      fontSize: '0.875rem',
-      lineHeight: '1.25rem',
-      transition: 'all 0.2s',
-      cursor: 'pointer',
-      ...((props as { ['data-state']?: string })['data-state'] === 'open' && {
-        backgroundColor: 'rgba(209, 213, 219, 0.5)',
-        borderColor: 'rgba(209, 213, 219, 1)',
-      }),
-      ...(props.disabled && {
-        pointerEvents: 'none',
-        opacity: 0.5,
-      }),
-      ...style,
-    }}
+    className="navigation-menu-trigger"
     {...props}
   >
     {children}
@@ -80,7 +56,7 @@ const NavigationMenuContent = React.forwardRef<
 >(({ style, ...props }, ref) => (
   <NavigationMenuPrimitive.Content
     ref={ref}
-    style={{ ...style, left: 0, top: 0, width: '100%', }}
+    className="navigation-menu-content"
     {...props}
   />
 ));
@@ -92,9 +68,9 @@ const NavigationMenuViewport = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Viewport>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport>
 >(({ style, ...props }, ref) => (
-  <div style={{ position: 'absolute', left: 0, top: '100%', display: 'flex', justifyContent: 'center' }}>
+  <div className="navigation-menu-viewport">
     <NavigationMenuPrimitive.Viewport
-      style={{ ...style, marginTop: '1.5rem', overflow: 'hidden', borderRadius: '0.375rem', border: '1px solid #E5E7EB', backgroundColor: 'white', color: '#6B7280', boxShadow: '0px 1px 2px 0 rgba(0, 0, 0, 0.05)', width: '100%', maxWidth: '20rem', zIndex: 50 }}
+      className="navigation-menu-viewport-content"
       ref={ref}
       {...props}
     />
@@ -109,11 +85,11 @@ const NavigationMenuIndicator = React.forwardRef<
 >(({ style, ...props }, ref) => (
   <NavigationMenuPrimitive.Indicator
     ref={ref}
-    style={{ ...style, zIndex: 1, height: '1.5px', width: '100%', display: 'flex', alignItems: 'flex-end', justifyContent: 'center', overflow: 'hidden' }}
+    className="navigation-menu-indicator"
     {...props}
   >
-    <div style={{ position: 'relative', top: '60%', height: '2px', width: '2px', transform: 'rotate(45deg)', borderRadius: '2px', backgroundColor: 'rgba(209, 213, 219, 1)', boxShadow: '0 2px 2px rgba(0, 0, 0, 0.15)' }} />
-  </NavigationMenuPrimitive.Indicator>
+    <div className="navigation-menu-indicator-content" />
+    </NavigationMenuPrimitive.Indicator>
 ));
 NavigationMenuIndicator.displayName =
   NavigationMenuPrimitive.Indicator.displayName;
