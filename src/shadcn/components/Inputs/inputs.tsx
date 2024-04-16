@@ -5,11 +5,11 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
     type?: string; // Include type property in InputProps interface
 }
 
-const InputGroup = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+const Inputs = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
     ({ className, ...props }, ref) => (
         <div
             ref={ref}
-            className={'inputs'}
+            className={className || 'inputs'}
             {...props}
         />
     )
@@ -44,4 +44,4 @@ const Label = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEleme
 );
 
 
-export { InputGroup, Input, Label };
+export { Inputs, Input, Label };

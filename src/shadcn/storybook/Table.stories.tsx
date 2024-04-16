@@ -1,6 +1,7 @@
 import { ListGroup } from 'react-bootstrap';
 import type { Meta, StoryObj } from '@storybook/react';
-import { FaRegTrashAlt, FaEdit } from 'react-icons/fa';
+import { FaRegTrashAlt, FaEdit, FaSearch } from 'react-icons/fa';
+import "../components/Navbar/navbar.css"
 import {
   Slots,
   Slot,
@@ -16,13 +17,13 @@ import { HoverCard, HoverCardTrigger, HoverCardContent } from '../components/Hov
 import { Card, CardContent, CardDescription, CardField, CardHeader, CardTitle, Deck } from '../components/Cards/card';
 import { Dialog, DialogClose, DialogDescription, DialogTrigger, DialogTitle, DialogPortal, DialogOverlay, DialogFooter, DialogContent, DialogHeader } from '../components/Dialog/dialog';
 import React from 'react';
-import { PaginationContent, Pagination, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '../components/ui/pagination';
+import { PaginationContent, Pagination, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '../components/Pagination/pagination';
 import { Popover, PopoverContent, PopoverTrigger } from '../components/Popover/popover';
 import { Textarea } from '../components/TextArea/textarea'
 import {Table, TableBody, TableHeader, TableHead, TableRow, TableCell, TableCaption} from '../components/Table/table';
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from '../components/ui/navigation-menu';
-import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarTrigger } from '../components/ui/menubar';
-import { Input, InputGroup, Label } from '../components/Inputs/inputs';
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from '../components/NavigationMenu/navigation-menu';
+import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarTrigger } from '../components/MenuBar/menubar';
+import { Input, Inputs, Label } from '../components/Inputs/inputs';
 
 const meta = {
   title: 'shadcn/components/Table',
@@ -81,7 +82,7 @@ const obj=`
 export const TableTest: Story = {
   args: {
     children: (
-      <>
+      <div className='conv-container'>
       <Deck>
       <Card>
               <CardHeader>
@@ -177,18 +178,18 @@ export const TableTest: Story = {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="w-[100px]">Invoice</TableHead>
+              <TableHead>Invoice</TableHead>
               <TableHead>Status</TableHead>
               <TableHead>Method</TableHead>
-              <TableHead className="text-right">Amount</TableHead>
+              <TableHead>Amount</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             <TableRow>
-              <TableCell className="font-medium">INV001</TableCell>
+              <TableCell>INV001</TableCell>
               <TableCell>Paid</TableCell>
               <TableCell>Credit Card</TableCell>
-              <TableCell className="text-right">$250.00</TableCell>
+              <TableCell>$250.00</TableCell>
             </TableRow>
           </TableBody>
         </Table>
@@ -230,19 +231,33 @@ export const TableTest: Story = {
           <PopoverContent>Place content for the popover here.</PopoverContent>
         </Popover>
         <Textarea/>
-        <InputGroup>
+        <Inputs>
           <Input placeholder='search' className='input-left'/>
           <Label className='right-label'>search</Label>
-        </InputGroup>
-        <InputGroup>
+        </Inputs>
+        <Inputs>
           <Label className='left-label'>Date</Label>
           <Input className='input-middle' type='datetime-local'/>
           <Label className='right-label'>Picker</Label>
-        </InputGroup>
+        </Inputs>
+        <Inputs>
+          <Input placeholder='example.example' className='input-left' type='email'/>
+          <Label className='right-label'>@moesol.com</Label>
+        </Inputs>
+        <Inputs>
+          <Label className='left-label'>Number</Label>
+          <Input className='input-right' type='number'/>
+        </Inputs>
         <Input className='input-alone'/>
         <Input className='input-alone'/>
+        <Input className='input-alone'/>
+        <Input className='input-alone'/>
+        <Inputs className='search-inputs'>
+          <Input className='search-input' placeholder='Search...'/>
+          <Label className='search-label'><FaSearch/></Label>
+        </Inputs>
         </div>
-      </>
+      </div>
     ),
   },
 };
