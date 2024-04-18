@@ -2,7 +2,7 @@ import * as React from "react";
 import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
 import "./pagination.css";
 
-import { ButtonProps } from "../Button/button";
+import Button, { ButtonProps } from "../Button/button";
 
 const Pagination = ({ className, ...props }: React.ComponentProps<"nav">) => (
   <nav
@@ -21,9 +21,11 @@ const PaginationContent = React.forwardRef<HTMLUListElement, React.ComponentProp
 );
 PaginationContent.displayName = "PaginationContent";
 
-const PaginationItem = React.forwardRef<HTMLLIElement, React.ComponentProps<"li">>(
-  ({ className, ...props }, ref) => (
-    <li ref={ref} className={className} {...props} />
+const PaginationItem = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, position, children, ...props }, ref) => (
+    <Button variant={variant} size={size} position={position} className={className} style={{margin: "1px"}}{...props}>
+      {children}
+    </Button>
   )
 );
 PaginationItem.displayName = "PaginationItem";
@@ -51,15 +53,10 @@ const PaginationPrevious = ({
   className,
   ...props
 }: React.ComponentProps<typeof PaginationLink>) => (
-  <PaginationLink
-    aria-label="Go to previous page"
-    size="default"
-    className={className}
-    {...props}
-  >
+  <div className={className || "pagination-previous"}>
     <ChevronLeft style={{ height: "1rem", width: "1rem" }} />
     <span>Previous</span>
-  </PaginationLink>
+  </div>
 );
 PaginationPrevious.displayName = "PaginationPrevious";
 
@@ -67,15 +64,10 @@ const PaginationNext = ({
   className,
   ...props
 }: React.ComponentProps<typeof PaginationLink>) => (
-  <PaginationLink
-    aria-label="Go to next page"
-    size="default"
-    className={className}
-    {...props}
-  >
+  <div className={className || "pagination-next"}>
     <span>Next</span>
     <ChevronRight style={{ height: "1rem", width: "1rem" }} />
-  </PaginationLink>
+  </div>
 );
 PaginationNext.displayName = "PaginationNext";
 

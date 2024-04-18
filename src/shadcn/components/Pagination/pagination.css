@@ -18,3 +18,15 @@
     align-items: center;
     justify-content: center;
 }
+
+.pagination-previous {
+    padding: 6px;
+    vertical-align: middle;
+    margin: 1px;
+}
+
+.pagination-next {
+    padding: 6px;
+    vertical-align: middle;
+    margin: 1px;
+}

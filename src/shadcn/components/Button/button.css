@@ -2,8 +2,7 @@
 
 /* Button Base Styles */
 .button {
-    display: inline-flex;
-    align-items: center;
+    display: inline-block;
     justify-content: center;
     cursor: pointer;
     font-size: 16px;
@@ -11,9 +10,9 @@
     outline: none;
     text-align: center;
     text-decoration: none;
-    min-height: 38px;
     transition: background-color 0.3s, border-color 0.3s, color 0.3s;
     margin: 0;
+    vertical-align: middle;
   }
   
   /* Button Variants */
@@ -117,6 +116,7 @@
   /* Button Sizes */
   .size-default {
     padding: 6px 12px;
+    min-height: 38px;
   }
   
   .size-sm {
@@ -128,7 +128,7 @@
   }
   
   .size-icon {
-    padding: 8px 8px;
+    padding: 6px 12px;
   }
   
   /* Button Hover States */

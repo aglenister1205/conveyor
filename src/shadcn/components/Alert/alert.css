@@ -6,6 +6,7 @@
     width: 100%;
     border-radius: 0.375rem;
     border: 1px solid var(--table-border);
+    background-color: var(--label-bg);
     padding: 1rem;
   }
   
@@ -32,9 +33,14 @@
     line-height: 1.25rem;
   }
   
+  .alert-container.default {
+    border-color: var(--table-border);
+  }
+
   /* Destructive variant styles */
   .alert-container.destructive {
     border-color: var(--destructive);
+    background-color: var(--destructive);
   }
   
   .alert-icon.destructive {
@@ -44,6 +50,7 @@
   /* Success variant styles */
   .alert-container.success {
     border-color: var(--success);
+    background-color: var(--success);
   }
   
   .alert-icon.success {

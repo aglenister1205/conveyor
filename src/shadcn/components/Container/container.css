@@ -1,4 +1,14 @@
-.conv-container {
+.conv-container.default {
     max-width: 1264px;
+    align-self: center;
+}
+
+.conv-container.large {
+    max-width: 1580px;
+    align-self: center;
+}
+
+.conv-container.small {
+    max-width: 948px;
     align-self: center;
 }

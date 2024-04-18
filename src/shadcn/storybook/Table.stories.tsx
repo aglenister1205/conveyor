@@ -6,7 +6,6 @@ import {
   Slots,
   Slot,
   Navbar,
-  Alert,
   Conveyor,
   useData,
   Lenses,
@@ -24,6 +23,8 @@ import {Table, TableBody, TableHeader, TableHead, TableRow, TableCell, TableCapt
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from '../components/NavigationMenu/navigation-menu';
 import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarTrigger } from '../components/MenuBar/menubar';
 import { Input, Inputs, Label } from '../components/Inputs/inputs';
+import { Alert, AlertTitle, AlertDescription } from '../components/Alert/alert';
+import Container from '../components/Container/container';
 
 const meta = {
   title: 'shadcn/components/Table',
@@ -82,7 +83,7 @@ const obj=`
 export const TableTest: Story = {
   args: {
     children: (
-      <div className='conv-container'>
+      <Container>
       <Deck>
       <Card>
               <CardHeader>
@@ -230,7 +231,6 @@ export const TableTest: Story = {
           <PopoverTrigger>Open</PopoverTrigger>
           <PopoverContent>Place content for the popover here.</PopoverContent>
         </Popover>
-        <Textarea/>
         <Inputs>
           <Input placeholder='search' className='input-left'/>
           <Label className='right-label'>search</Label>
@@ -252,12 +252,37 @@ export const TableTest: Story = {
         <Input className='input-alone'/>
         <Input className='input-alone'/>
         <Input className='input-alone'/>
+        <Textarea/>
         <Inputs className='search-inputs'>
           <Input className='search-input' placeholder='Search...'/>
           <Label onClick={(e) => console.log("searched")} className='search-label'><FaSearch/></Label>
         </Inputs>
-        </div>
+        <Alert>
+          <AlertTitle>Heads up!</AlertTitle>
+          <AlertDescription>
+            You can add components and dependencies to your app using the cli.
+          </AlertDescription>
+        </Alert>
+        <Alert variant='destructive'>
+          <AlertTitle>Heads up!</AlertTitle>
+          <AlertDescription>
+            You can add components and dependencies to your app using the cli.
+          </AlertDescription>
+        </Alert>
+        <Alert variant='success'>
+          <AlertTitle>Heads up!</AlertTitle>
+          <AlertDescription>
+            You can add components and dependencies to your app using the cli.
+          </AlertDescription>
+        </Alert>
+        <Pagination>
+            <PaginationPrevious/>
+            <PaginationItem>1</PaginationItem>
+            <PaginationItem>2</PaginationItem>
+            <PaginationNext/>
+        </Pagination>
       </div>
+    </Container>
     ),
   },
 };

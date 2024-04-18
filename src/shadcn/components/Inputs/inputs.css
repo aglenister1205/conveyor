@@ -55,6 +55,8 @@
     color-scheme: var(--color-scheme);
     border-radius: 0.375rem;
     margin: 8px;
+    min-width: 225px;
+    vertical-align: middle;
 }
 
 .right-label {

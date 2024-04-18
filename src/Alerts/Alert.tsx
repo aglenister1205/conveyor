@@ -41,7 +41,7 @@ export const Alert = () => {
         <RBAlert
             show={true}
             id={id}
-            className={className}
+            className={className ?? 'alert'}
             style={style ?? defaultStyles}
             dismissible
             onClose={() => removeAlert(alertId)}

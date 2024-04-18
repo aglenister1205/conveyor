@@ -21,11 +21,11 @@ const Button: React.FC<ButtonProps> = ({
     variant,
     `position-${position}`,
     `size-${size}`,
-    className, // Custom class name passed as prop
   ].join(' ');
 
+
   return (
-    <button className={classNames} {...props}>
+    <button className={className || classNames} {...props}>
       {children}
     </button>
   );
