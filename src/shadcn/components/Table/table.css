@@ -2,35 +2,36 @@
     position: relative;
     width: 100%;
     overflow-x: auto;
-    border-radius: 0.5rem;
     margin-bottom: 0.5rem;
-    border: 1px solid var(--table-border);
+    overflow: hidden;
 }
 
 .table-main {
+    border-radius: 0.5rem;
     width: 100%;
+    border-collapse: separate; /* Separate border model */
+    border-spacing: 0;
+    overflow: hidden;
+    outline: 1px solid var(--table-border);
 }
 
 .table-header {
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
     border-top: 1px solid var(--table-border);
 }
 
 .table-footer {
-    border-top: 1px solid var(--table-border);
     color: var(--table-border);
 }
 
 .table-row {
-    border-bottom: 1px solid var(--table-border);
+    align-items: center;
+    border-radius: inherit;
 }
 
 .table-head,
 .table-cell {
     text-align: center;
-    border-left: 1px solid var(--table-border);
-    border-right: 1px solid var(--table-border);
+    border: 1px solid var(--table-border);
 }
 
 .table-caption {
@@ -41,4 +42,26 @@
 
 .table-row:hover {
     background-color: var(--label-bg);
+}
+
+.isolated-column-right-end {
+    text-align: center;
+    border: 1px solid var(--table-border); 
+    margin-left: 50px;
+    display: block; /* Treat table cell as a block-level element */
+}
+
+.isolated-column-left-end {
+    text-align: center;
+    border: 1px solid var(--table-border);
+    margin-right: 50px;
+    display: block; /* Treat table cell as a block-level element */
+}
+
+.isolated-column-middle {
+    text-align: center;
+    border: 1px solid var(--table-border);
+    margin-right: 50px;
+    margin-left: 50px;
+    display: block; /* Treat table cell as a block-level element */
 }

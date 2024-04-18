@@ -1,7 +1,7 @@
 import { ListGroup } from 'react-bootstrap';
 import type { Meta, StoryObj } from '@storybook/react';
 import { FaRegTrashAlt, FaEdit, FaSearch } from 'react-icons/fa';
-import "../components/Navbar/navbar.css"
+import "../components/Container/container.css"
 import {
   Slots,
   Slot,
@@ -179,7 +179,7 @@ export const TableTest: Story = {
           <TableHeader>
             <TableRow>
               <TableHead>Invoice</TableHead>
-              <TableHead>Status</TableHead>
+              <TableHead className='isolated-column-middle'>Status</TableHead>
               <TableHead>Method</TableHead>
               <TableHead>Amount</TableHead>
             </TableRow>
@@ -187,7 +187,7 @@ export const TableTest: Story = {
           <TableBody>
             <TableRow>
               <TableCell>INV001</TableCell>
-              <TableCell>Paid</TableCell>
+              <TableCell className='isolated-column-middle'>Paid</TableCell>
               <TableCell>Credit Card</TableCell>
               <TableCell>$250.00</TableCell>
             </TableRow>
@@ -254,7 +254,7 @@ export const TableTest: Story = {
         <Input className='input-alone'/>
         <Inputs className='search-inputs'>
           <Input className='search-input' placeholder='Search...'/>
-          <Label className='search-label'><FaSearch/></Label>
+          <Label onClick={(e) => console.log("searched")} className='search-label'><FaSearch/></Label>
         </Inputs>
         </div>
       </div>

@@ -94,6 +94,7 @@
     height: 100%;
     text-align: center;
     border-radius: 0 1 1 0;
+    cursor: pointer;
 }
 
 .search-input {
