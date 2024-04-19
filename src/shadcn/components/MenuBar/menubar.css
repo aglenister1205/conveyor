@@ -9,6 +9,7 @@
     background-color: var(--primary);
     padding: 0.5rem;
     color: var(--text-color);
+    transition: all 0.3s ease;
   }
   
   .menubar-trigger {
@@ -23,6 +24,7 @@
     background-color: transparent;
     border-color: transparent;
     color: var(--text-color);
+    transition: all 0.3s ease;
   }
   
   .menubar-sub-trigger {

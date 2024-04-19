@@ -1,5 +1,7 @@
 // Alert.tsx
 import React from "react";
+import { X } from "lucide-react";
+
 import "./alert.css";
 
 type Variant = "default" | "destructive" | "success";
@@ -44,6 +46,16 @@ const AlertDescription = React.forwardRef<
 ))
 AlertDescription.displayName = "AlertDescription"
 
-export { Alert, AlertTitle, AlertDescription }
+const AlertClose = React.forwardRef<HTMLSpanElement, React.HTMLAttributes<HTMLSpanElement>>(({ className, ...props }, ref ) => (
+  <span
+    className={className || "alert-close"} 
+    {...props}
+  >
+  <X/>
+  </span>
+
+))
+
+export { Alert, AlertTitle, AlertDescription, AlertClose }
 
 export default Alert;

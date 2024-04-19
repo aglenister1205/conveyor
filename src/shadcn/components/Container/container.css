@@ -6,9 +6,11 @@
 .conv-container.large {
     max-width: 1580px;
     align-self: center;
+    transition: all 0.3s ease;
 }
 
 .conv-container.small {
     max-width: 948px;
     align-self: center;
+    transition: all 0.3s ease;
 }

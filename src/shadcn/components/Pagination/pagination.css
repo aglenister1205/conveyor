@@ -2,6 +2,8 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    margin: 1px;
+    transition: all 0.3s ease;
 }
 
 .pagination-content {
@@ -22,11 +24,14 @@
 .pagination-previous {
     padding: 6px;
     vertical-align: middle;
-    margin: 1px;
+    margin: inherit;
+    cursor: pointer;
 }
 
 .pagination-next {
     padding: 6px;
     vertical-align: middle;
-    margin: 1px;
+    margin: inherit;
+    cursor: pointer;
+
 }

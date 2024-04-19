@@ -4,6 +4,7 @@
     overflow-x: auto;
     margin-bottom: 0.5rem;
     overflow: hidden;
+    transition: color 0.3s ease;
 }
 
 .table-main {

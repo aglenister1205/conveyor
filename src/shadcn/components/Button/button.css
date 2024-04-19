@@ -10,8 +10,8 @@
     outline: none;
     text-align: center;
     text-decoration: none;
-    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
-    margin: 0;
+    transition: all 0.3s ease;
+    margin: inherit;
     vertical-align: middle;
   }
   
@@ -57,6 +57,13 @@
     color: var(--link);
     border: 1px solid transparent;
     text-decoration: underline;
+  }
+
+  .page-number {
+    background-color: var(--label-bg);
+    color: var(--text-color);
+    border: 1px solid var(--label-bg);
+    margin: 1px;
   }
   
   /* Outline Variants */
@@ -131,48 +138,48 @@
     padding: 6px 12px;
   }
   
-  /* Button Hover States */
-  .button:hover {
-    filter: brightness(1.1);
-  }
-  
-  .button.primary:hover {
+  .primary:hover {
     background-color: var(--primary-dark);
     border-color: var(--primary-dark);
   }
   
-  .button.destructive:hover {
+  .destructive:hover {
     background-color: darkred;
     border-color: darkred;
   }
   
-  .button.success:hover {
+  .success:hover {
     background-color: var(--success-dark);
     border-color: var(--success-dark);
   }
   
-  .button.warning:hover {
+  .warning:hover {
     background-color: darkorange;
     border-color: darkorange;
   }
   
-  .button.secondary:hover {
+  .secondary:hover {
     background-color: gray;
     border-color: gray;
   }
   
-  .button.ghost:hover {
+  .ghost:hover {
     color: white;
     border-color: gray;
     background-color: gray;
   }
   
-  .button.link:hover {
+  .link:hover {
     color: magenta;
+  }
+
+  .page-number:hover {
+    background-color: var(--table-border);
+    border: 1px solid var(--table-border);
   }
   
   /* Outline Primary Button Hover */
-.outline-primary:hover {
+  .outline-primary:hover {
     background-color: var(--primary);
     color: white;
   }

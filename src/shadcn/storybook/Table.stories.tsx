@@ -23,7 +23,7 @@ import {Table, TableBody, TableHeader, TableHead, TableRow, TableCell, TableCapt
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from '../components/NavigationMenu/navigation-menu';
 import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarTrigger } from '../components/MenuBar/menubar';
 import { Input, Inputs, Label } from '../components/Inputs/inputs';
-import { Alert, AlertTitle, AlertDescription } from '../components/Alert/alert';
+import { Alert, AlertTitle, AlertDescription, AlertClose } from '../components/Alert/alert';
 import Container from '../components/Container/container';
 
 const meta = {
@@ -274,11 +274,20 @@ export const TableTest: Story = {
           <AlertDescription>
             You can add components and dependencies to your app using the cli.
           </AlertDescription>
+          <AlertClose/>
         </Alert>
         <Pagination>
             <PaginationPrevious/>
             <PaginationItem>1</PaginationItem>
             <PaginationItem>2</PaginationItem>
+            <PaginationItem>3</PaginationItem>
+            <PaginationItem>4</PaginationItem>
+            <PaginationItem>5</PaginationItem>
+            <PaginationItem>6</PaginationItem>
+            <PaginationItem>7</PaginationItem>
+            <PaginationItem variant='success'>8</PaginationItem>
+            <PaginationItem>9</PaginationItem>
+            <PaginationItem>10</PaginationItem>
             <PaginationNext/>
         </Pagination>
       </div>

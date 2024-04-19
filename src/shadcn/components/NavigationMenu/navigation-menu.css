@@ -28,7 +28,7 @@
     font-weight: 500;
     font-size: 0.875rem;
     line-height: 1.25rem;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
     cursor: pointer;
 }
 

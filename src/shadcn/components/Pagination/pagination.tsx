@@ -23,7 +23,7 @@ PaginationContent.displayName = "PaginationContent";
 
 const PaginationItem = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, position, children, ...props }, ref) => (
-    <Button variant={variant} size={size} position={position} className={className} style={{margin: "1px"}}{...props}>
+    <Button variant={variant || "page-number"} size={size} position={position} className={className} {...props}>
       {children}
     </Button>
   )
@@ -55,7 +55,7 @@ const PaginationPrevious = ({
 }: React.ComponentProps<typeof PaginationLink>) => (
   <div className={className || "pagination-previous"}>
     <ChevronLeft style={{ height: "1rem", width: "1rem" }} />
-    <span>Previous</span>
+    <ChevronLeft style={{ height: "1rem", width: "1rem" }} />
   </div>
 );
 PaginationPrevious.displayName = "PaginationPrevious";
@@ -65,7 +65,7 @@ const PaginationNext = ({
   ...props
 }: React.ComponentProps<typeof PaginationLink>) => (
   <div className={className || "pagination-next"}>
-    <span>Next</span>
+    <ChevronRight style={{ height: "1rem", width: "1rem" }} />
     <ChevronRight style={{ height: "1rem", width: "1rem" }} />
   </div>
 );
