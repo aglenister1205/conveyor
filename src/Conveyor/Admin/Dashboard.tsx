@@ -13,10 +13,10 @@ export const Dashboard = ({ ...props }: DashboardProps) => {
       className='flex min-h-screen w-full flex-col bg-[--bg-color] text-[--text-color] transition-all duration-1000'
       {...props}
     >
-      <aside className='fixed flex inset-y-0 left-0 z-10 flex-col border-r bg-[--bg-accent] sm:flex transition-all duration-1000'>
+      <aside className='fixed group flex inset-y-0 left-0 z-10 flex-col border-r bg-[--bg-accent] sm:flex transition-all duration-1000'>
         <nav className='flex flex-col items-start gap-4 px-2 sm:py-5 w-full'>
           <Link
-            className='group h-9 mb-1 flex w-full shrink-0 text-start justify-center gap-2 rounded-full text-lg font-semibold md:h-8 md:text-base'
+            className='group h-9 mb-1 flex w-full shrink-0 text-start justify-center gap-2 rounded-full text-lg font-semibold md:h-8 md:text-base hover:motion-safe:animate-pulse'
             to='/'
           >
             <span className='h-9 inline-flex w-full text-start'>
@@ -27,7 +27,7 @@ export const Dashboard = ({ ...props }: DashboardProps) => {
             </span>
           </Link>
           <Link
-            className='group flex h-9 w-full shrink-0 text-start justify-center gap-2 rounded-full text-lg font-semibold md:h-8 md:text-base'
+            className='group flex h-9 w-full shrink-0 text-start justify-center gap-2 rounded-full text-lg font-semibold md:h-8 md:text-base hover:motion-safe:animate-pulse'
             to='/'
           >
             <span className='h-9 inline-flex w-full text-start'>
@@ -36,7 +36,7 @@ export const Dashboard = ({ ...props }: DashboardProps) => {
             </span>
           </Link>
           <Link
-            className='group flex h-9 w-full shrink-0 text-start justify-center gap-2 rounded-full text-lg font-semibold md:h-8 md:text-base'
+            className='group flex h-9 w-full shrink-0 text-start justify-center gap-2 rounded-full text-lg font-semibold md:h-8 md:text-base hover:motion-safe:animate-pulse'
             to='/'
           >
             <span className='h-9 inline-flex w-full text-start'>
@@ -47,7 +47,7 @@ export const Dashboard = ({ ...props }: DashboardProps) => {
             </span>
           </Link>
           <Link
-            className='group flex h-9 w-full shrink-0 text-start justify-center gap-2 rounded-full text-lg font-semibold md:h-8 md:text-base'
+            className='group flex h-9 w-full shrink-0 text-start justify-center gap-2 rounded-full text-lg font-semibold md:h-8 md:text-base hover:motion-safe:animate-pulse'
             to='/'
           >
             <span className='h-9 inline-flex w-full text-start'>

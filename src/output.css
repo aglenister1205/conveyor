@@ -1,6 +1,6 @@
-/*
-! tailwindcss v3.4.3 | MIT License | https://tailwindcss.com
-*/
+/* stylelint-disable comment-empty-line-before */
+
+/* ! tailwindcss v3.4.3 | MIT License | https://tailwindcss.com */
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -734,10 +734,6 @@ video {
   color: var(--text-color);
 }
 
-.text-\[--text-muted\] {
-  color: var(--text-muted);
-}
-
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -765,12 +761,108 @@ video {
   --border-color: hsl(from var(--fg-color) h s calc(l + 0.1));
   /* base text color */
   --text-color: hsl(from var(--fg-color) 0 0% calc(100));
-  /* inactive or not interactable color for text*/
+  /* inactive or not interactible color for text */
   --text-muted: hsl(from var(--text-color) h s calc(l - .1));
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+
+.hover\:animate-bounce:hover {
+  animation: bounce 1s infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
+.hover\:animate-pulse:hover {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hover\:animate-spin:hover {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.hover\:animate-ping:hover {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 .group:hover .group-hover\:inline {
   display: inline;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes ping {
+    75%, 100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+
+  .hover\:motion-safe\:animate-ping:hover {
+    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(-25%);
+      animation-timing-function: cubic-bezier(0.8,0,1,1);
+    }
+
+    50% {
+      transform: none;
+      animation-timing-function: cubic-bezier(0,0,0.2,1);
+    }
+  }
+
+  .hover\:motion-safe\:animate-bounce:hover {
+    animation: bounce 1s infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .hover\:motion-safe\:animate-spin:hover {
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes pulse {
+    50% {
+      opacity: .5;
+    }
+  }
+
+  .hover\:motion-safe\:animate-pulse:hover {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
 }
 
 @media (min-width: 640px) {

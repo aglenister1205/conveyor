@@ -1,3 +1,4 @@
+/* stylelint-disable comment-empty-line-before */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,6 +16,6 @@
     --border-color: hsl(from var(--fg-color) h s calc(l + 0.1));
     /* base text color */
     --text-color: hsl(from var(--fg-color) 0 0% calc(100));
-    /* inactive or not interactable color for text*/
+    /* inactive or not interactible color for text */
     --text-muted: hsl(from var(--text-color) h s calc(l - .1));
 }
