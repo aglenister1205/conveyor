@@ -5,7 +5,7 @@
 
 :root {
     /* main background color */
-    --bg-color: hsl(0 0 15%);
+    --bg-color: hsl(0deg 0% 15%);
     /* accent to distinguish components on top of --bg-color   */
     --bg-accent: hsl(from var(--bg-color) h s calc(l - .15));
     /* second level background color used on components on top of the --bg-color */
@@ -15,7 +15,7 @@
     /* border color */
     --border-color: hsl(from var(--fg-color) h s calc(l + 0.1));
     /* base text color */
-    --text-color: hsl(from var(--fg-color) 0 0% calc(100));
+    --text-color: hsl(from var(--fg-color) 0deg 0% 100%);
     /* inactive or not interactible color for text */
     --text-muted: hsl(from var(--text-color) h s calc(l - .1));
 }
