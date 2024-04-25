@@ -8,6 +8,7 @@ import ModelForm from '../ModelForm/ModelForm';
 import ModelFormField from '../ModelForm/ModelFormField';
 
 import ModelTableCrud from './ModelTableCrud';
+import { TableCell, TableRow } from '../../shadcn/components/ui/table';
 
 interface ModelTableRowProps extends BaseProps {
   modelName: string;
@@ -44,11 +45,11 @@ const ModelTableRow = ({
 
   return (
     <ModelForm formMethods={formMethods} loading={loading}>
-      <tr id={id} className={className}>
+      <TableRow id={id} className={className}>
         {children ??
           fields.map((field) => {
             return (
-              <td key={`${PACKAGE_ABBR}-table-cell-${field}`}>
+              <TableCell key={`${PACKAGE_ABBR}-table-cell-${field}`}>
                 <ModelFormField
                   modelName={modelName}
                   fields={fields}
@@ -56,11 +57,11 @@ const ModelTableRow = ({
                   data={data}
                   fieldData={fieldsData?.[field]}
                 />
-              </td>
+              </TableCell>
             );
           })}
         {showCrud && !children ? (
-          <td className={`${PACKAGE_ABBR}-model-table-crud-cell`}>
+          <TableCell className={`${PACKAGE_ABBR}-model-table-crud-cell`}>
             <ModelTableCrud
               key={`${PACKAGE_ABBR}-table-cell-crud`}
               modelName={modelName}
@@ -70,9 +71,9 @@ const ModelTableRow = ({
               editable={editable}
               deletable={deletable}
             />
-          </td>
+          </TableCell>
         ) : null}
-      </tr>
+      </TableRow>
     </ModelForm>
   );
 };

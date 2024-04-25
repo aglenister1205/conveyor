@@ -17,6 +17,7 @@ import Logo from '../../logo.svg?react';
 function ConveyorAdminNavbar({ modelNames }: { modelNames: string[] | null }) {
   const { currentTheme, themeCSS, changeTheme } = useThemeSelect();
   const sortedModelNames = modelNames?.sort();
+  console.log(themeCSS);
   return (
     <>
       <Helmet defer>

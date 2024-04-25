@@ -10,6 +10,7 @@ import {
 } from '../../reducers/tableViewsReducer';
 import { BaseProps } from '../../types';
 import { humanizeText } from '../../utils/common';
+import { TableHead } from '../../shadcn/components/ui/table';
 
 interface ModelTableHeaderProps extends BaseProps {
   modelName: string;
@@ -52,15 +53,14 @@ const ModelTableHeader: FC<ModelTableHeaderProps> = ({
     }
   };
   return (
-    // rome-ignore lint/a11y/useKeyWithClickEvents: TODO?
-    <th id={id} className={className} onClick={handleSort}>
+    <TableHead id={id} className={className} onClick={handleSort}>
       {displayLabelFn(field)}
       {sortable && (
         <span className={`float-right ${PACKAGE_ABBR}-sort `}>
           {sortDisplay}
         </span>
       )}
-    </th>
+    </TableHead>
   );
 };
 

@@ -1,5 +1,11 @@
 import { memo, FC, useContext, useMemo } from 'react';
-import { Table } from 'react-bootstrap';
+import {
+  Table,
+  TableHead,
+  TableHeader,
+  TableRow,
+  TableBody,
+} from '../../shadcn/components/ui/table';
 
 import { ConveyorContext } from '../../contexts/ConveyorContext';
 import { PACKAGE_ABBR } from '../../package';
@@ -31,9 +37,9 @@ const ModelTable = ({
   const memoDataList = useMemo(() => dataList, [JSON.stringify(dataList)]);
   const { primaryKey } = useContext(ConveyorContext);
   return (
-    <Table id={id} className={className} striped bordered hover size='sm'>
-      <thead id={id} className={className}>
-        <tr>
+    <Table id={id} className={className}>
+      <TableHeader id={id} className={className}>
+        <TableRow>
           {fields.map((field) => {
             const displayLabelFn = fieldsData?.[field]?.displayLabelFn;
             return (
@@ -45,10 +51,10 @@ const ModelTable = ({
               />
             );
           })}
-          {showCrud && <th className={`${PACKAGE_ABBR}-crud-header`} />}
-        </tr>
-      </thead>
-      <tbody id={id} className={className}>
+          {showCrud && <TableHead className={`${PACKAGE_ABBR}-crud-header`} />}
+        </TableRow>
+      </TableHeader>
+      <TableBody id={id} className={className}>
         {memoDataList.map((rowData) => {
           return (
             <ModelTableRow
@@ -62,7 +68,7 @@ const ModelTable = ({
             />
           );
         })}
-      </tbody>
+      </TableBody>
     </Table>
   );
 };

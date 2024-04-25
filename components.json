@@ -5,7 +5,7 @@
   "tsx": true,
   "tailwind": {
     "config": "src/shadcn/tailwind.config.js",
-    "css": "src/shadcn/globals.css",
+    "css": "src/shadcn/css",
     "baseColor": "slate",
     "cssVariables": true,
     "prefix": ""

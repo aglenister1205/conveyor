@@ -1,5 +1,6 @@
 import { memo, FC, ReactNode } from 'react';
-import { Button, Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import { Button } from '../../shadcn/components/ui/button';
 
 import { Page } from '../../enums';
 import { useTableView } from '../../hooks/useTableView';

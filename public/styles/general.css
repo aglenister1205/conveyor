@@ -14,6 +14,20 @@ dt {
     padding-right: 10px;
 }
 
+td, th {
+    box-shadow: inset 0.5px 0.5px 0 0 var(--bs-table-border-color), inset -0.5px 0.5px 0 0 var(--bs-table-border-color), inset 0 0 0 9999px var(--bs-table-bg-state,var(--bs-table-bg-type,var(--bs-table-accent-bg))) !important;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    align-items: center !important;
+    padding: 0 !important;
+}
+
+th {
+    background-color: var(--input-bg-color) !important;
+    resize: horizontal;
+    white-space: nowrap;
+}
+
 form label {
     display: block;
 }
