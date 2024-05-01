@@ -940,6 +940,25 @@ button {
   color: hsl(from var(--bg-warning) h s calc(l - 0.6));
 }
 
+.isolated-right {
+  margin-left: 50px;
+  display: block;
+  /* Treat table cell as a block-level element */
+}
+
+.isolate-left {
+  margin-right: 50px;
+  display: block;
+  /* Treat table cell as a block-level element */
+}
+
+.isolate-middle {
+  margin-right: 50px;
+  margin-left: 50px;
+  display: block;
+  /* Treat table cell as a block-level element */
+}
+
 .hover\:text-\[--text-color\]:hover {
   color: var(--text-color);
 }
